@@ -48,5 +48,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # use haml 
-gem 'haml-rails', '>= 0.3.4', :group => :development
-
+gem 'haml-rails', '>= 0.3.4'

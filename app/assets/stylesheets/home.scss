@@ -1,15 +1,16 @@
+$background-img-ratio: 56.25%; /* (1836 / 3264 * 100%) */
+
 .background-img {
     background-image: image_url('main-page-background.jpg');
     background-size: contain;
     background-repeat: no-repeat;
     min-width: 800px;
     height: 0;
-    padding-top: 56.25%; /* (img-height / img-width * container-width) */
-                /* (1836 / 3264 * 100) */
+    padding-top: $background-img-ratio;
 } 
 
 .title {
-    margin-top: -46.25%; /* actual-margin - padding-top */ 
+    margin-top: 10% - $background-img-ratio; /* actual-margin - padding-top */ 
     font-size: 50px;
     font-family: "Arial Black", Gadget, sans-serif;
     text-align: center;

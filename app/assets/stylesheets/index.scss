@@ -1,18 +1,21 @@
 .background-img {
-    background-size: 100%; 
+    background-image: image_url('main-page-background.jpg');
+    background-size: contain;
     background-repeat: no-repeat;
-    height: 700px;
     min-width: 800px;
+    height: 0;
+    padding-top: 56.25%; /* (img-height / img-width * container-width) */
+                /* (1836 / 3264 * 100) */
 } 
 
 .title {
-    margin-top: 150px;
+    margin-top: -46.25%; /* actual-margin - padding-top */ 
     font-size: 50px;
     font-family: "Arial Black", Gadget, sans-serif;
     text-align: center;
 }
 
 .know-me-btn {
-    margin-top:50px;
-    margin-left: 100px;
+    margin-top:5%;
+    margin-left: 20%;
 }

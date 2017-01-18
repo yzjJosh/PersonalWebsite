@@ -1,0 +1,25 @@
+%h1 Listing languages
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Proficiency
+      %th Person
+      %th
+      %th
+      %th
+
+  %tbody
+    - @languages.each do |language|
+      %tr
+        %td= language.name
+        %td= language.proficiency
+        %td= language.person
+        %td= link_to 'Show', language
+        %td= link_to 'Edit', edit_language_path(language)
+        %td= link_to 'Destroy', language, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Language', new_language_path

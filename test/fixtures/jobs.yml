@@ -4,14 +4,16 @@ one:
   company: MyString
   title: MyString
   location: MyString
-  start_time: 2017-01-16 17:29:47
-  end_time: 2017-01-16 17:29:47
-  description: MyString
+  start_time: 2017-01-17 19:50:41
+  end_time: 2017-01-17 19:50:41
+  description: MyText
+  person: one
 
 two:
   company: MyString
   title: MyString
   location: MyString
-  start_time: 2017-01-16 17:29:47
-  end_time: 2017-01-16 17:29:47
-  description: MyString
+  start_time: 2017-01-17 19:50:41
+  end_time: 2017-01-17 19:50:41
+  description: MyText
+  person: two

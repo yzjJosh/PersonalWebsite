@@ -23,6 +23,9 @@
     = f.datetime_select :end_time
   .field
     = f.label :description
-    = f.text_field :description
+    = f.text_area :description
+  .field
+    = f.label :person
+    = f.text_field :person
   .actions
     = f.submit 'Save'

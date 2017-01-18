@@ -1,0 +1,25 @@
+%h1 Listing interests
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Person
+      %th
+      %th
+      %th
+
+  %tbody
+    - @interests.each do |interest|
+      %tr
+        %td= interest.name
+        %td= interest.description
+        %td= interest.person
+        %td= link_to 'Show', interest
+        %td= link_to 'Edit', edit_interest_path(interest)
+        %td= link_to 'Destroy', interest, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Interest', new_interest_path

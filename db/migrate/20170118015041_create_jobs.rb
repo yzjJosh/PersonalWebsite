@@ -6,7 +6,8 @@ class CreateJobs < ActiveRecord::Migration[5.0]
       t.string :location
       t.timestamp :start_time
       t.timestamp :end_time
-      t.string :description
+      t.text :description
+      t.belongs_to :person, foreign_key: true
 
       t.timestamps
     end

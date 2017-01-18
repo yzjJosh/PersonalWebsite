@@ -1,0 +1,43 @@
+%h1 Listing people
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Profile photo url
+      %th Title
+      %th Company or school
+      %th Email
+      %th Address
+      %th Linkedin url
+      %th Github url
+      %th Facebook url
+      %th Google plus url
+      %th Wechat barcode url
+      %th Description
+      %th
+      %th
+      %th
+
+  %tbody
+    - @people.each do |person|
+      %tr
+        %td= person.name
+        %td= person.profile_photo_url
+        %td= person.title
+        %td= person.company_or_school
+        %td= person.email
+        %td= person.address
+        %td= person.linkedin_url
+        %td= person.github_url
+        %td= person.facebook_url
+        %td= person.google_plus_url
+        %td= person.wechat_barcode_url
+        %td= person.description
+        %td= link_to 'Show', person
+        %td= link_to 'Edit', edit_person_path(person)
+        %td= link_to 'Destroy', person, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Person', new_person_path

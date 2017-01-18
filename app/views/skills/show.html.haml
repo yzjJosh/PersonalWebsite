@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @skill.name
+%p
+  %b Description:
+  = @skill.description
+%p
+  %b Person:
+  = @skill.person
+
+= link_to 'Edit', edit_skill_path(@skill)
+\|
+= link_to 'Back', skills_path

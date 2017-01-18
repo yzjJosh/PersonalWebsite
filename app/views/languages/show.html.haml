@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @language.name
+%p
+  %b Proficiency:
+  = @language.proficiency
+%p
+  %b Person:
+  = @language.person
+
+= link_to 'Edit', edit_language_path(@language)
+\|
+= link_to 'Back', languages_path

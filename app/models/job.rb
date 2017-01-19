@@ -1,3 +1,3 @@
 class Job < ApplicationRecord
-  belongs_to :person, dependent: :destroy
+  belongs_to :person
 end

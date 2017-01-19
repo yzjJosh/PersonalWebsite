@@ -1,3 +1,3 @@
 class Course < ApplicationRecord
-  belongs_to :education, dependent: :destroy    
+  belongs_to :education
 end

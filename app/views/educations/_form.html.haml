@@ -1,0 +1,37 @@
+= form_for @education do |f|
+  - if @education.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@education.errors.count, "error")} prohibited this education from being saved:"
+      %ul
+        - @education.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :school
+    = f.text_field :school
+  .field
+    = f.label :degree
+    = f.text_field :degree
+  .field
+    = f.label :location
+    = f.text_field :location
+  .field
+    = f.label :start_time
+    = f.datetime_select :start_time
+  .field
+    = f.label :end_time
+    = f.datetime_select :end_time
+  .field
+    = f.label :GPA
+    = f.text_field :GPA
+  .field
+    = f.label :GPA_scale
+    = f.text_field :GPA_scale
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :person
+    = f.text_field :person
+  .actions
+    = f.submit 'Save'

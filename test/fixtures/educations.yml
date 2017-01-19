@@ -4,8 +4,8 @@ one:
   school: MyString
   degree: MyString
   location: MyString
-  start_time: 2017-01-18 11:54:00
-  end_time: 2017-01-18 11:54:00
+  start_time: 2017-01-17 19:57:18
+  end_time: 2017-01-17 19:57:18
   GPA: 9.99
   GPA_scale: 9.99
   description: MyText
@@ -15,8 +15,8 @@ two:
   school: MyString
   degree: MyString
   location: MyString
-  start_time: 2017-01-18 11:54:00
-  end_time: 2017-01-18 11:54:00
+  start_time: 2017-01-17 19:57:18
+  end_time: 2017-01-17 19:57:18
   GPA: 9.99
   GPA_scale: 9.99
   description: MyText

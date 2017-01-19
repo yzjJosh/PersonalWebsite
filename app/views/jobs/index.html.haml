@@ -23,7 +23,7 @@
         %td= job.start_time
         %td= job.end_time
         %td= job.description
-        %td= job.person
+        %td= link_to job.person.name, job.person
         %td= link_to 'Show', job
         %td= link_to 'Edit', edit_job_path(job)
         %td= link_to 'Destroy', job, :method => :delete, :data => { :confirm => 'Are you sure?' }

@@ -20,7 +20,7 @@
   = @job.description
 %p
   %b Person:
-  = @job.person
+  = link_to @job.person.name, @job.person
 
 = link_to 'Edit', edit_job_path(@job)
 \|

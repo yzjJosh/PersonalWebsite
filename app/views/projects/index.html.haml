@@ -20,8 +20,8 @@
         %td= project.start_time
         %td= project.end_time
         %td= project.description
-        %td= project.education
-        %td= project.job
+        %td= link_to project.education.school, project.education if project.education != nil
+        %td= link_to project.job.company, project.job if project.job != nil
         %td= link_to 'Show', project
         %td= link_to 'Edit', edit_project_path(project)
         %td= link_to 'Destroy', project, :method => :delete, :data => { :confirm => 'Are you sure?' }

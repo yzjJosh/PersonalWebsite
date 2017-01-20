@@ -11,7 +11,7 @@
   = @publication.description
 %p
   %b Person:
-  = @publication.person
+  = link_to @publication.person.name, @publication.person
 
 = link_to 'Edit', edit_publication_path(@publication)
 \|

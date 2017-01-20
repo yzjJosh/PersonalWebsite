@@ -15,7 +15,7 @@
       %tr
         %td= interest.name
         %td= interest.description
-        %td= interest.person
+        %td= link_to interest.person.name, interest.person
         %td= link_to 'Show', interest
         %td= link_to 'Edit', edit_interest_path(interest)
         %td= link_to 'Destroy', interest, :method => :delete, :data => { :confirm => 'Are you sure?' }

@@ -20,9 +20,9 @@
     = f.text_area :description
   .field
     = f.label :education
-    = f.text_field :education
+    = f.select :education_id, Education.all.map {|education| [education.school, education.id]} + [['No education', nil]]
   .field
     = f.label :job
-    = f.text_field :job
+    = f.select :job_id, Job.all.map {|job| [job.company, job.id]} + [['No job', nil]]
   .actions
     = f.submit 'Save'

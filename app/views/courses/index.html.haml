@@ -15,7 +15,7 @@
       %tr
         %td= course.name
         %td= course.description
-        %td= course.education
+        %td= link_to course.education.school, course.education
         %td= link_to 'Show', course
         %td= link_to 'Edit', edit_course_path(course)
         %td= link_to 'Destroy', course, :method => :delete, :data => { :confirm => 'Are you sure?' }

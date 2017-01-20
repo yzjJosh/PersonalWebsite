@@ -14,10 +14,10 @@
   = @project.description
 %p
   %b Education:
-  = @project.education
+  = link_to @project.education.school, @project.education if @project.education != nil
 %p
   %b Job:
-  = @project.job
+  = link_to @project.job.company, @project.job if @project.job != nil
 
 = link_to 'Edit', edit_project_path(@project)
 \|

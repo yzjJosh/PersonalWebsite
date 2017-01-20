@@ -17,7 +17,7 @@
         %td= publication.name
         %td= publication.time
         %td= publication.description
-        %td= publication.person
+        %td= link_to publication.person.name, publication.person
         %td= link_to 'Show', publication
         %td= link_to 'Edit', edit_publication_path(publication)
         %td= link_to 'Destroy', publication, :method => :delete, :data => { :confirm => 'Are you sure?' }

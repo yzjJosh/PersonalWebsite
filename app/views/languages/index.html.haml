@@ -15,7 +15,7 @@
       %tr
         %td= language.name
         %td= language.proficiency
-        %td= language.person
+        %td= link_to language.person.name, language.person
         %td= link_to 'Show', language
         %td= link_to 'Edit', edit_language_path(language)
         %td= link_to 'Destroy', language, :method => :delete, :data => { :confirm => 'Are you sure?' }

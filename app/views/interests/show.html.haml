@@ -8,7 +8,7 @@
   = @interest.description
 %p
   %b Person:
-  = @interest.person
+  = link_to @interest.person.name, @interest.person
 
 = link_to 'Edit', edit_interest_path(@interest)
 \|

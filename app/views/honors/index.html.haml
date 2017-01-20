@@ -21,7 +21,7 @@
         %td= honor.granted_by
         %td= honor.location
         %td= honor.description
-        %td= honor.person
+        %td= link_to honor.person.name, honor.person
         %td= link_to 'Show', honor
         %td= link_to 'Edit', edit_honor_path(honor)
         %td= link_to 'Destroy', honor, :method => :delete, :data => { :confirm => 'Are you sure?' }

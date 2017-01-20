@@ -8,7 +8,7 @@
   = @skill.description
 %p
   %b Person:
-  = @skill.person
+  = link_to @skill.person.name, @skill.person
 
 = link_to 'Edit', edit_skill_path(@skill)
 \|

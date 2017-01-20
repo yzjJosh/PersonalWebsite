@@ -17,7 +17,7 @@
   = @honor.description
 %p
   %b Person:
-  = @honor.person
+  = link_to @honor.person.name, @honor.person
 
 = link_to 'Edit', edit_honor_path(@honor)
 \|

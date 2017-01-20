@@ -8,7 +8,7 @@
   = @language.proficiency
 %p
   %b Person:
-  = @language.person
+  = link_to @language.person.name, @language.person
 
 = link_to 'Edit', edit_language_path(@language)
 \|

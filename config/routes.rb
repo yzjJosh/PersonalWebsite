@@ -16,5 +16,6 @@ Rails.application.routes.draw do
 
     get 'home', to: 'home#show'
 
+    get 'about', to: 'about#show'
 
 end

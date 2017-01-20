@@ -26,8 +26,11 @@
   = @education.description
 %p
   %b Person:
-  = @education.person
+  = link_to @education.person.name, @education.person
 
 = link_to 'Edit', edit_education_path(@education)
 \|
 = link_to 'Back', educations_path
+= stylesheet_link_tag 'educations', media: 'all'
+= stylesheet_link_tag 'scaffolds', media: 'all'
+= javascript_include_tag 'educations', 'data-turbolinks-track': 'reload'

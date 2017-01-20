@@ -1,0 +1,25 @@
+/* (1836 / 3264 * 100%) */
+/* line 3, /Users/josh/Study/programs/PersonalWebsite/app/assets/stylesheets/home.scss */
+.background-img {
+  background-image: url(/assets/main-page-background-c3b43fe9d2be69c77d726dc644ebe5a8250e85fe46ed8d33f23fb77146692407.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-width: 800px;
+  height: 0;
+  padding-top: 56.25%;
+}
+
+/* line 12, /Users/josh/Study/programs/PersonalWebsite/app/assets/stylesheets/home.scss */
+.title {
+  margin-top: -46.25%;
+  /* actual-margin - padding-top */
+  font-size: 50px;
+  font-family: "Arial Black", Gadget, sans-serif;
+  text-align: center;
+}
+
+/* line 19, /Users/josh/Study/programs/PersonalWebsite/app/assets/stylesheets/home.scss */
+.know-me-btn {
+  margin-top: 5%;
+  margin-left: 20%;
+}

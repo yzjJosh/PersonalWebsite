@@ -90,10 +90,10 @@ ActiveRecord::Schema.define(version: 20170118021805) do
     t.string   "github_url"
     t.string   "facebook_url"
     t.string   "google_plus_url"
-    t.string   "wechat_barcode_url"
+    t.string   "wechat_qrcode_url"
     t.text     "description"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "projects", force: :cascade do |t|

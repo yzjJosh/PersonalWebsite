@@ -11,7 +11,7 @@
     = f.text_field :name
   .field
     = f.label :time
-    = f.datetime_select :time
+    = f.datetime_select :time, start_year: 1900, prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year', hour: 'Choose hour', minute: 'Choose minute'}
   .field
     = f.label :granted_by
     = f.text_field :granted_by

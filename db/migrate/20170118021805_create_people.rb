@@ -11,7 +11,7 @@ class CreatePeople < ActiveRecord::Migration[5.0]
       t.string :github_url
       t.string :facebook_url
       t.string :google_plus_url
-      t.string :wechat_barcode_url
+      t.string :wechat_qrcode_url
       t.text :description
 
       t.timestamps

@@ -11,18 +11,18 @@
     = f.text_field :name
   .field
     = f.label :start_time
-    = f.datetime_select :start_time
+    = f.datetime_select :start_time, start_year: 1900, prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year', hour: 'Choose hour', minute: 'Choose minute'}
   .field
     = f.label :end_time
-    = f.datetime_select :end_time
+    = f.datetime_select :end_time, start_year: 1900, prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year', hour: 'Choose hour', minute: 'Choose minute'}
   .field
     = f.label :description
     = f.text_area :description
   .field
     = f.label :education
-    = f.select :education_id, Education.all.map {|education| [education.school, education.id]} + [['No education', nil]]
+    = f.select :education_id, [['No education', nil]] + Education.all.map {|education| [education.school, education.id]}
   .field
     = f.label :job
-    = f.select :job_id, Job.all.map {|job| [job.company, job.id]} + [['No job', nil]]
+    = f.select :job_id, [['No job', nil]] + Job.all.map {|job| [job.company, job.id]}
   .actions
     = f.submit 'Save'

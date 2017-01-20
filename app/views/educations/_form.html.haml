@@ -17,10 +17,10 @@
     = f.text_field :location
   .field
     = f.label :start_time
-    = f.datetime_select :start_time
+    = f.datetime_select :start_time, start_year: 1900, prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year', hour: 'Choose hour', minute: 'Choose minute'}
   .field
     = f.label :end_time
-    = f.datetime_select :end_time
+    = f.datetime_select :end_time, start_year: 1900, prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year', hour: 'Choose hour', minute: 'Choose minute'}
   .field
     = f.label :GPA
     = f.text_field :GPA

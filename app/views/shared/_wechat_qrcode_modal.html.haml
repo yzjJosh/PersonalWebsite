@@ -1,0 +1,9 @@
+.modal.fade{:role => "dialog", :id => id}
+  .vertical-alignment-helper
+    .modal-dialog.vertical-align-center
+      .modal-content
+        .modal-header
+          %button.close{'data-dismiss' => 'modal'} &times;
+          %h4.modal-title Scan to add me in Wechat
+        .modal-body
+          %img.wechat_qrcode{:src => qrcode_url, :alt => 'Wechat QR code', :title => 'Wechat QR code'}

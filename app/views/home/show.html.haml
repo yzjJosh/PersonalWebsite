@@ -1,4 +1,6 @@
-= stylesheet_link_tag 'home', media: 'all'
+= content_for :head do
+  = stylesheet_link_tag 'home', media: 'all'
+  = stylesheet_link_tag 'wechat_qrcode_modal', media: 'all'
 
 .container-fluid.background-img
   .background-inner
@@ -8,24 +10,24 @@
         -if !@person.linkedin_url.blank?
           %li
             %a{:href => @person.linkedin_url}
-              %img.icon{:src => image_path('linkedin_icon')}
+              %img.icon{:src => image_path('linkedin_icon'), :title => "Linkedin profile", :alt => "linkedin"}
         -if !@person.github_url.blank?
           %li
             %a{:href => @person.github_url}
-              %img.icon{:src => image_path('github_icon')}
+              %img.icon{:src => image_path('github_icon'), :title => "Github profile", :alt => "github"}
         -if !@person.facebook_url.blank?
           %li
             %a{:href => @person.facebook_url}
-              %img.icon{:src => image_path('facebook_icon')}
+              %img.icon{:src => image_path('facebook_icon'), :title => "Facebook profile", :alt => "facebook"}
         -if !@person.google_plus_url.blank?
           %li
             %a{:href => @person.google_plus_url}
-              %img.icon{:src => image_path('google_plus_icon')}
+              %img.icon{:src => image_path('google_plus_icon'), :title => "Google+ profile", :alt => "Google+"}
         -if !@person.wechat_qrcode.blank?
           %li
-            %a{:href => @person.wechat_qrcode.to_s}
-              %img.icon{:src => image_path('wechat_icon')}
+            %img.icon.clickable{:src => image_path('wechat_icon'), :title => "Wechat QRCode", :alt => "Wechat", 'data-toggle' => 'modal', 'data-target' => '#wechat_dialog'}
       %p.know-me-btn    
         %a.btn.btn-primary.btn-lg{:href => "about", :role => "button"} Get to know me &raquo;
 
+= render partial: 'shared/wechat_qrcode_modal', locals: {:qrcode_url => @person.wechat_qrcode.to_s, :id => 'wechat_dialog' }
 

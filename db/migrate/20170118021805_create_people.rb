@@ -2,7 +2,7 @@ class CreatePeople < ActiveRecord::Migration[5.0]
   def change
     create_table :people do |t|
       t.string :name
-      t.string :profile_photo_url
+      t.string :profile_photo
       t.string :title
       t.string :company_or_school
       t.string :email
@@ -11,7 +11,7 @@ class CreatePeople < ActiveRecord::Migration[5.0]
       t.string :github_url
       t.string :facebook_url
       t.string :google_plus_url
-      t.string :wechat_qrcode_url
+      t.string :wechat_qrcode
       t.text :description
 
       t.timestamps

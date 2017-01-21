@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 20170118021805) do
 
   create_table "people", force: :cascade do |t|
     t.string   "name"
-    t.string   "profile_photo_url"
+    t.string   "profile_photo"
     t.string   "title"
     t.string   "company_or_school"
     t.string   "email"
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 20170118021805) do
     t.string   "github_url"
     t.string   "facebook_url"
     t.string   "google_plus_url"
-    t.string   "wechat_qrcode_url"
+    t.string   "wechat_qrcode"
     t.text     "description"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false

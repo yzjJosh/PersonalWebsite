@@ -10,8 +10,8 @@
     = f.label :name
     = f.text_field :name
   .field
-    = f.label :profile_photo_url
-    = f.text_field :profile_photo_url
+    = f.label :profile_photo
+    = f.file_field :profile_photo
   .field
     = f.label :title
     = f.text_field :title
@@ -37,8 +37,8 @@
     = f.label :google_plus_url
     = f.text_field :google_plus_url
   .field
-    = f.label :wechat_qrcode_url
-    = f.text_field :wechat_qrcode_url
+    = f.label :wechat_qrcode
+    = f.file_field :wechat_qrcode
   .field
     = f.label :description
     = f.text_area :description

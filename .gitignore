@@ -31,3 +31,6 @@ Passengerfile.json
 
 # Ignore vendor folder
 /vendor
+
+# Ignore uploaded files
+/public/uploads

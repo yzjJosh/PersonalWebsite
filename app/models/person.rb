@@ -7,5 +7,8 @@ class Person < ApplicationRecord
     has_many :skills, dependent: :destroy
     has_many :languages, dependent: :destroy
 
-    validates :name, :profile_photo_url, :title, :company_or_school, :email, presence: true 
+    validates :name, :profile_photo, :title, :company_or_school, :email, presence: true
+
+    mount_uploader :profile_photo, ProfilePhotoUploader
+    mount_uploader :wechat_qrcode, WechatQrcodeUploader  
 end

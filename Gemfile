@@ -51,3 +51,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # use haml 
 gem 'haml-rails', '>= 0.3.4'
+
+# use carrier wave to handle file uploads
+gem 'carrierwave', '~> 1.0'

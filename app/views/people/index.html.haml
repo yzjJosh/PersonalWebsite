@@ -4,7 +4,7 @@
   %thead
     %tr
       %th Name
-      %th Profile photo url
+      %th Profile photo
       %th Title
       %th Company or school
       %th Email
@@ -13,7 +13,7 @@
       %th Github url
       %th Facebook url
       %th Google plus url
-      %th Wechat qrcode url
+      %th Wechat qrcode
       %th Description
       %th
       %th
@@ -23,16 +23,16 @@
     - @people.each do |person|
       %tr
         %td= person.name
-        %td= person.profile_photo_url
+        %td= link_to person.profile_photo.to_s, person.profile_photo.to_s
         %td= person.title
         %td= person.company_or_school
         %td= person.email
         %td= person.address
-        %td= person.linkedin_url
-        %td= person.github_url
-        %td= person.facebook_url
-        %td= person.google_plus_url
-        %td= person.wechat_qrcode_url
+        %td= link_to person.linkedin_url, person.linkedin_url
+        %td= link_to person.github_url, person.github_url
+        %td= link_to person.facebook_url, person.facebook_url
+        %td= link_to person.google_plus_url, person.google_plus_url
+        %td= link_to person.wechat_qrcode.to_s, person.wechat_qrcode.to_s
         %td= person.description
         %td= link_to 'Show', person
         %td= link_to 'Edit', edit_person_path(person)

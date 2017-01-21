@@ -9,14 +9,28 @@ $background-img-ratio: 56.25%; /* (1836 / 3264 * 100%) */
     padding-top: $background-img-ratio;
 } 
 
+.background-inner {
+    margin-top: - $background-img-ratio; /* actual-margin - padding-top */ 
+}
+
 .title {
-    margin-top: 10% - $background-img-ratio; /* actual-margin - padding-top */ 
+    margin-top: 10%;
     font-size: 50px;
     font-family: "Arial Black", Gadget, sans-serif;
     text-align: center;
 }
 
-.know-me-btn {
+.operations {
+    display: inline-block;
     margin-top:5%;
     margin-left: 20%;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+}
+
+.know-me-btn {
+    margin-top: 20px;
 }

@@ -1,8 +1,31 @@
 = stylesheet_link_tag 'home', media: 'all'
 
 .container-fluid.background-img
-  %p.title.white Welcome to Zijiang Yang's home page!
-  %p.know-me-btn
-    %a.btn.btn-primary.btn-lg{:href => "about", :role => "button"} Get to know me &raquo;
+  .background-inner
+    %p.title.white Welcome to Zijiang Yang's home page!
+    .operations
+      %ul.list-inline
+        -if !@person.linkedin_url.blank?
+          %li
+            %a{:href => @person.linkedin_url}
+              %img.icon{:src => image_path('linkedin_icon')}
+        -if !@person.github_url.blank?
+          %li
+            %a{:href => @person.github_url}
+              %img.icon{:src => image_path('github_icon')}
+        -if !@person.facebook_url.blank?
+          %li
+            %a{:href => @person.facebook_url}
+              %img.icon{:src => image_path('facebook_icon')}
+        -if !@person.google_plus_url.blank?
+          %li
+            %a{:href => @person.google_plus_url}
+              %img.icon{:src => image_path('google_plus_icon')}
+        -if !@person.wechat_qrcode.blank?
+          %li
+            %a{:href => @person.wechat_qrcode.to_s}
+              %img.icon{:src => image_path('wechat_icon')}
+      %p.know-me-btn    
+        %a.btn.btn-primary.btn-lg{:href => "about", :role => "button"} Get to know me &raquo;
 
 

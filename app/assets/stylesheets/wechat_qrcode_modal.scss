@@ -1,12 +1,7 @@
-.wechat_qrcode {
-    width: 100%;
-}
-
 .modal-title {
     text-align: center;
 }
 
-/* Make sure that modal is placed on the center of screen */
 .vertical-alignment-helper {
     display:table;
     height: 100%;
@@ -26,4 +21,15 @@
     /* To center horizontally */
     margin: 0 auto;
     pointer-events: all;
+}
+
+#close-btn {
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#wechat_qrcode {
+    width: 100%;
 }

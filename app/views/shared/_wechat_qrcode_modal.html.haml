@@ -6,4 +6,6 @@
           %button.close{'data-dismiss' => 'modal'} &times;
           %h4.modal-title Scan to add me in Wechat
         .modal-body
-          %img.wechat_qrcode{:src => qrcode_url, :alt => 'Wechat QR code', :title => 'Wechat QR code'}
+          %img#wechat_qrcode{:src => qrcode_url, :alt => 'Wechat QR code', :title => 'Wechat QR code'}
+        .modal-footer
+          %button#close-btn.btn.btn-primary{'data-dismiss' => 'modal'} Got it

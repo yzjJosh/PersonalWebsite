@@ -11,16 +11,16 @@ Database design:
 Person {
     id: integer (primary key, required)
     name: string (required)
-    profile_photo_url: string (required)
+    profile_photo: string (required)
     title: string (required)
     company_or_school: string (required)
-    email: string (required)
+    email: string 
     address: string
     linkedin_url: string
     github_url: string
     facebook_url: string
     google_plus_url: string
-    wechat_barcode_url: string    
+    wechat_qrcode: string    
     description: text
 }
 

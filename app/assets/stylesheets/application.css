@@ -28,6 +28,10 @@ footer {
     color: white;
 }
 
+.gray {
+    color: gray;
+}
+
 .clickable {
     cursor: pointer;
 }

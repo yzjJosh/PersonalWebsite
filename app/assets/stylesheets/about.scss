@@ -8,3 +8,39 @@
     height: 100%;
 }
 
+#profile-photo {
+    width: 250px;
+}
+
+.top-buffer { 
+    margin-top:30px; 
+}
+
+.bottom-buffer {
+    margin-bottom: 30px;
+}
+
+.horizontal-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#person-basic-info {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#person-description {
+    margin-top: 50px;
+    font-size: 25px;
+}
+
+.section-title {
+    font-size: 70px;
+}
+
+.bottom-border {
+    border-bottom-style: solid;
+    border-width: 1px;
+}

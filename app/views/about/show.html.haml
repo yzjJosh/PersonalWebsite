@@ -26,4 +26,30 @@
 
 
 .container-fluid
-  = @person
+  .bottom-border
+    .row.top-buffer
+      .col-md-10.col-md-offset-2
+        %h1.section-title Who am I?
+    .row.top-buffer.bottom-buffer
+      .col-md-3.col-md-offset-1.col-xs-4
+        %img#profile-photo.img-circle.horizontal-center{:src => @person.profile_photo, :alt => 'Profile photo', :title => 'Profile photo'}
+        #person-basic-info
+          %h2= @person.name
+          .gray
+            %p
+              = @person.title 
+              %em @ 
+              = @person.company_or_school
+            -if !@person.email.blank?
+              %p    
+                %a{:href => "mailto:#{@person.email}"}= @person.email
+            -if !@person.address.blank?
+              %p
+                = @person.address
+      -if !@person.description.blank?
+        .col-md-7.col-xs-8
+          %p#person-description.lead= @person.description
+      
+  .row.top-buffer
+    .col-md-3.col-md-offset-1
+      text

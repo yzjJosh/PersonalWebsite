@@ -5,7 +5,7 @@
   = @person.name
 %p
   %b Profile photo:
-  = link_to @person.profile_photo.to_s, @person.profile_photo.to_s
+  = link_to @person.profile_photo.to_s, @person.profile_photo.to_s if !@person.profile_photo.blank?
 %p
   %b Title:
   = @person.title
@@ -32,7 +32,7 @@
   = link_to @person.google_plus_url, @person.google_plus_url
 %p
   %b Wechat qrcode:
-  = link_to @person.wechat_qrcode.to_s, @person.wechat_qrcode.to_s
+  = link_to @person.wechat_qrcode.to_s, @person.wechat_qrcode.to_s if !@person.wechat_qrcode.blank?
 %p
   %b Description:
   = @person.description

@@ -1,6 +1,7 @@
 class AboutController < ApplicationController
 
-    def show 
+    def show
+        @slides = Slide.all
         @person = Person.all[0]
     end
 

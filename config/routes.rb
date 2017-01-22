@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :slides
   resources :people
   resources :languages
   resources :skills

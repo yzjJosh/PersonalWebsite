@@ -104,6 +104,13 @@ Language {
     person_id: integer (required, foreign key)
 }
 
+Slide {
+    id: integer (primary key, required)
+    title: string (required)
+    content: text
+    background: string
+}
+
 Deployment:
 
 Before starting the server, please firstly create the database using following command:

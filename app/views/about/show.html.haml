@@ -2,5 +2,28 @@
   = stylesheet_link_tag 'about', media: 'all'
   = javascript_include_tag 'about', 'data-turbolinks-track': 'reload'
 
+- if @slides.length > 0
+  .carousel.slide#head-slides{'data-ride' => 'carousel'}
+    %ol.carousel-indicators
+      - @slides.length.times do |i|
+        %li{:class => ('active' if i==0), 'data-target' => '#head-slides', 'data-slide-to' => i}
+    .carousel-inner{:role => 'listbox'}
+      - @slides.length.times do |i|
+        .item{:class => ('active' if i==0)}
+          - if !@slides[i].background.blank?
+            .img{:style => "background: url(#{@slides[i].background.to_s}); background-size: contain; background-repeat: no-repeat; background-position: center;"}
+          .container
+            .carousel-caption
+              %h1= @slides[i].title
+              - if !@slides[i].content.blank?
+                %p= @slides[i].content
+    %a.left.carousel-control{:href => '#head-slides', :role => 'button', 'data-slide' => 'prev'}
+      %span.glyphicon.glyphicon-chevron-left{'aria-hidden' => true}
+      %span.sr-only Previous
+    %a.right.carousel-control{:href => '#head-slides', :role => 'button', 'data-slide' => 'next'}
+      %span.glyphicon.glyphicon-chevron-right{'aria-hidden' => true}
+      %span.sr-only Next
+
+
 .container-fluid
-= @person
+  = @person

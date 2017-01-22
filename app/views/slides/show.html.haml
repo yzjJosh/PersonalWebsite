@@ -1,0 +1,19 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @slide.title
+%p
+  %b Content:
+  = @slide.content
+%p
+  %b Background:
+  = link_to @slide.background.to_s, @slide.background.to_s if !@slide.background.blank?
+
+= link_to 'Edit', edit_slide_path(@slide)
+\|
+= link_to 'Back', slides_path
+
+= javascript_include_tag 'slides', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag 'scaffolds', media: 'all'
+= stylesheet_link_tag 'slides', media: 'all'

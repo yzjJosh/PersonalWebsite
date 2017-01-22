@@ -1,0 +1,29 @@
+%h1 Listing slides
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Content
+      %th Background
+      %th
+      %th
+      %th
+
+  %tbody
+    - @slides.each do |slide|
+      %tr
+        %td= slide.title
+        %td= slide.content
+        %td= link_to slide.background.to_s, slide.background.to_s if !slide.background.blank?
+        %td= link_to 'Show', slide
+        %td= link_to 'Edit', edit_slide_path(slide)
+        %td= link_to 'Destroy', slide, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Slide', new_slide_path
+
+= javascript_include_tag 'slides', 'data-turbolinks-track': 'reload'
+= stylesheet_link_tag 'scaffolds', media: 'all'
+= stylesheet_link_tag 'slides', media: 'all'

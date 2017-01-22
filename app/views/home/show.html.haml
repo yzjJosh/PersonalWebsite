@@ -27,7 +27,7 @@
           %li
             %img.icon.clickable{:src => image_path('wechat_icon'), :title => "Wechat QRCode", :alt => "Wechat", 'data-toggle' => 'modal', 'data-target' => '#wechat_dialog'}
       %p.know-me-btn    
-        %a.btn.btn-primary.btn-lg{:href => "about", :role => "button"} Get to know me &raquo;
+        %a.btn.btn-primary.btn-lg{:href => "/about", :role => "button"} Get to know me &raquo;
 
 = render partial: 'shared/wechat_qrcode_modal', locals: {:qrcode_url => @person.wechat_qrcode.to_s, :id => 'wechat_dialog' }
 

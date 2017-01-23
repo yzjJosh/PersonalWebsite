@@ -8,6 +8,7 @@ class CreateEducations < ActiveRecord::Migration[5.0]
       t.timestamp :end_time
       t.decimal :GPA
       t.decimal :GPA_scale
+      t.string :photo
       t.text :description
       t.belongs_to :person, foreign_key: true
 

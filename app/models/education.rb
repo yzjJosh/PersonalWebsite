@@ -4,5 +4,5 @@ class Education < ApplicationRecord
   has_many :courses, dependent: :destroy
 
   validates :school, :degree, :start_time, presence: true
-
+  mount_uploader :photo, EducationPhotoUploader
 end

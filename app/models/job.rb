@@ -3,5 +3,6 @@ class Job < ApplicationRecord
   has_many :projects, dependent: :destroy
 
   validates :company, :title, :start_time, presence: true
+  mount_uploader :photo, JobPhotoUploader
 
 end

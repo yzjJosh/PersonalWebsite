@@ -54,3 +54,6 @@ gem 'haml-rails', '>= 0.3.4'
 
 # use carrier wave to handle file uploads
 gem 'carrierwave', '~> 1.0'
+
+# Use mini magick for image processing
+gem "mini_magick"

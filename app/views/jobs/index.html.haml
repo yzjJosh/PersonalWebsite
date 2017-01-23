@@ -9,6 +9,7 @@
       %th Start time
       %th End time
       %th Description
+      %th Photo
       %th Person
       %th
       %th
@@ -23,6 +24,7 @@
         %td= job.start_time
         %td= job.end_time
         %td= allow_line_break job.description
+        %td= link_to job.photo.to_s, job.photo.to_s if !job.photo.blank?
         %td= link_to job.person.name, job.person
         %td= link_to 'Show', job
         %td= link_to 'Edit', edit_job_path(job)

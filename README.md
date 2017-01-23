@@ -31,6 +31,7 @@ Job {
     location: string
     start_time: datetime (required)
     end_time: datetime
+    photo: string
     description: text
     person_id: integer (required, foreign key)
 }
@@ -44,6 +45,7 @@ Education {
     end_time: datetime
     GPA: decimal
     GPA_scale: decimal
+    photo: string
     description: text
     person_id: integer (required, foreign key)
 }

@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20170122165415) do
     t.datetime "end_time"
     t.decimal  "GPA"
     t.decimal  "GPA_scale"
+    t.string   "photo"
     t.text     "description"
     t.integer  "person_id"
     t.datetime "created_at",  null: false
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(version: 20170122165415) do
     t.string   "location"
     t.datetime "start_time"
     t.datetime "end_time"
+    t.string   "photo"
     t.text     "description"
     t.integer  "person_id"
     t.datetime "created_at",  null: false

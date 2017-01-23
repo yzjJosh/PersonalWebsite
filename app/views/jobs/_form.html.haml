@@ -22,6 +22,9 @@
     = f.label :end_time
     = f.datetime_select :end_time, start_year: 1900, prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year', hour: 'Choose hour', minute: 'Choose minute'}
   .field
+    = f.label :photo
+    = f.file_field :photo
+  .field
     = f.label :description
     = f.text_area :description
   .field

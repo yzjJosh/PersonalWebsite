@@ -22,6 +22,9 @@
   %b Gpa scale:
   = @education.GPA_scale
 %p
+  %b Photo:
+  = link_to @education.photo.to_s, @education.photo.to_s if !@education.photo.blank?
+%p
   %b Description:
   = allow_line_break @education.description
 %p

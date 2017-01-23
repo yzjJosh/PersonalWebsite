@@ -10,6 +10,7 @@
       %th End time
       %th Gpa
       %th Gpa scale
+      %th Photo
       %th Description
       %th Person
       %th
@@ -26,6 +27,7 @@
         %td= education.end_time
         %td= education.GPA
         %td= education.GPA_scale
+        %td= link_to education.photo.to_s, education.photo.to_s if !education.photo.blank?
         %td= allow_line_break education.description
         %td= link_to education.person.name, education.person
         %td= link_to 'Show', education

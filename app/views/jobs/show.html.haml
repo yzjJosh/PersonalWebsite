@@ -19,6 +19,9 @@
   %b Description:
   = allow_line_break @job.description
 %p
+  %b Photo:
+  = link_to @job.photo.to_s, @job.photo.to_s if !@job.photo.blank? 
+%p
   %b Person:
   = link_to @job.person.name, @job.person
 

@@ -33,7 +33,7 @@
         %td= link_to person.facebook_url, person.facebook_url
         %td= link_to person.google_plus_url, person.google_plus_url
         %td= link_to person.wechat_qrcode.to_s, person.wechat_qrcode.to_s if !person.wechat_qrcode.blank?
-        %td= person.description
+        %td= allow_line_break person.description
         %td= link_to 'Show', person
         %td= link_to 'Edit', edit_person_path(person)
         %td= link_to 'Destroy', person, :method => :delete, :data => { :confirm => 'Are you sure?' }

@@ -26,7 +26,7 @@
         %td= education.end_time
         %td= education.GPA
         %td= education.GPA_scale
-        %td= education.description
+        %td= allow_line_break education.description
         %td= link_to education.person.name, education.person
         %td= link_to 'Show', education
         %td= link_to 'Edit', edit_education_path(education)

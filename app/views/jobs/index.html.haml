@@ -22,7 +22,7 @@
         %td= job.location
         %td= job.start_time
         %td= job.end_time
-        %td= job.description
+        %td= allow_line_break job.description
         %td= link_to job.person.name, job.person
         %td= link_to 'Show', job
         %td= link_to 'Edit', edit_job_path(job)

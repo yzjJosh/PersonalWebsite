@@ -23,7 +23,7 @@
   = @education.GPA_scale
 %p
   %b Description:
-  = @education.description
+  = allow_line_break @education.description
 %p
   %b Person:
   = link_to @education.person.name, @education.person

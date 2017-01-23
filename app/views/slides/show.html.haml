@@ -5,7 +5,7 @@
   = @slide.title
 %p
   %b Content:
-  = @slide.content
+  = allow_line_break @slide.content
 %p
   %b Background:
   = link_to @slide.background.to_s, @slide.background.to_s if !@slide.background.blank?

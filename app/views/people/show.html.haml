@@ -35,7 +35,7 @@
   = link_to @person.wechat_qrcode.to_s, @person.wechat_qrcode.to_s if !@person.wechat_qrcode.blank?
 %p
   %b Description:
-  = @person.description
+  = allow_line_break @person.description
 
 = link_to 'Edit', edit_person_path(@person)
 \|

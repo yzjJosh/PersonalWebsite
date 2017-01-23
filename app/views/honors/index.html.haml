@@ -20,7 +20,7 @@
         %td= honor.time
         %td= honor.granted_by
         %td= honor.location
-        %td= honor.description
+        %td= allow_line_break honor.description
         %td= link_to honor.person.name, honor.person
         %td= link_to 'Show', honor
         %td= link_to 'Edit', edit_honor_path(honor)

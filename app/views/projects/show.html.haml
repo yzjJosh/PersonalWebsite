@@ -11,7 +11,7 @@
   = @project.end_time
 %p
   %b Description:
-  = @project.description
+  = allow_line_break @project.description
 %p
   %b Education:
   = link_to @project.education.school, @project.education if @project.education != nil

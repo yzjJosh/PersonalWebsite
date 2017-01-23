@@ -17,7 +17,7 @@
   = @job.end_time
 %p
   %b Description:
-  = @job.description
+  = allow_line_break @job.description
 %p
   %b Person:
   = link_to @job.person.name, @job.person

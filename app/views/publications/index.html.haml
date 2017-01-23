@@ -16,7 +16,7 @@
       %tr
         %td= publication.name
         %td= publication.time
-        %td= publication.description
+        %td= allow_line_break publication.description
         %td= link_to publication.person.name, publication.person
         %td= link_to 'Show', publication
         %td= link_to 'Edit', edit_publication_path(publication)

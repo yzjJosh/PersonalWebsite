@@ -14,7 +14,7 @@
     - @slides.each do |slide|
       %tr
         %td= slide.title
-        %td= slide.content
+        %td= allow_line_break slide.content
         %td= link_to slide.background.to_s, slide.background.to_s if !slide.background.blank?
         %td= link_to 'Show', slide
         %td= link_to 'Edit', edit_slide_path(slide)

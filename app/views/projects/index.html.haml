@@ -19,7 +19,7 @@
         %td= project.name
         %td= project.start_time
         %td= project.end_time
-        %td= project.description
+        %td= allow_line_break project.description
         %td= link_to project.education.school, project.education if project.education != nil
         %td= link_to project.job.company, project.job if project.job != nil
         %td= link_to 'Show', project

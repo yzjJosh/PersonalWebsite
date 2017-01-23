@@ -8,7 +8,7 @@
   = @publication.time
 %p
   %b Description:
-  = @publication.description
+  = allow_line_break @publication.description
 %p
   %b Person:
   = link_to @publication.person.name, @publication.person

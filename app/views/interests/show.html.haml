@@ -5,7 +5,7 @@
   = @interest.name
 %p
   %b Description:
-  = @interest.description
+  = allow_line_break @interest.description
 %p
   %b Person:
   = link_to @interest.person.name, @interest.person

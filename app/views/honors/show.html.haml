@@ -14,7 +14,7 @@
   = @honor.location
 %p
   %b Description:
-  = @honor.description
+  = allow_line_break @honor.description
 %p
   %b Person:
   = link_to @honor.person.name, @honor.person

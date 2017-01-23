@@ -14,7 +14,7 @@
     - @skills.each do |skill|
       %tr
         %td= skill.name
-        %td= skill.description
+        %td= allow_line_break skill.description
         %td= link_to skill.person.name, skill.person
         %td= link_to 'Show', skill
         %td= link_to 'Edit', edit_skill_path(skill)

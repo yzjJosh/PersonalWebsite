@@ -16,7 +16,7 @@
             .carousel-caption
               %h1= @slides[i].title
               - if !@slides[i].content.blank?
-                %p= @slides[i].content
+                %p= allow_line_break @slides[i].content
     %a.left.carousel-control{:href => '#head-slides', :role => 'button', 'data-slide' => 'prev'}
       %span.glyphicon.glyphicon-chevron-left{'aria-hidden' => true}
       %span.sr-only Previous
@@ -30,7 +30,7 @@
     .row.top-buffer
       .col-md-10.col-md-offset-2
         %h1.section-title Who am I?
-    .row.top-buffer.bottom-buffer
+    .row.top-buffer
       .col-md-3.col-md-offset-1.col-xs-4
         %img#profile-photo.img-circle.horizontal-center{:src => @person.profile_photo, :alt => 'Profile photo', :title => 'Profile photo'}
         #person-basic-info
@@ -48,8 +48,7 @@
                 = @person.address
       -if !@person.description.blank?
         .col-md-7.col-xs-8
-          %p#person-description.lead= @person.description
-      
-  .row.top-buffer
-    .col-md-3.col-md-offset-1
-      text
+          %p#person-description.lead= allow_line_break @person.description      
+    .row.top-buffer
+      .col-md-3.col-md-offset-1
+        text

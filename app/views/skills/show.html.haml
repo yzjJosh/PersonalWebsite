@@ -5,7 +5,7 @@
   = @skill.name
 %p
   %b Description:
-  = @skill.description
+  = allow_line_break @skill.description
 %p
   %b Person:
   = link_to @skill.person.name, @skill.person

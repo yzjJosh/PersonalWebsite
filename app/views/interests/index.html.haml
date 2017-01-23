@@ -14,7 +14,7 @@
     - @interests.each do |interest|
       %tr
         %td= interest.name
-        %td= interest.description
+        %td= allow_line_break interest.description
         %td= link_to interest.person.name, interest.person
         %td= link_to 'Show', interest
         %td= link_to 'Edit', edit_interest_path(interest)

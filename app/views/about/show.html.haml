@@ -26,7 +26,7 @@
 
 
 .container-fluid
-  .bottom-border
+  .bottom-border.bottom-padding
     .row.top-buffer
       .col-md-10.col-md-offset-2
         %h1.section-title Who am I?
@@ -48,7 +48,21 @@
                 = @person.address
       -if !@person.description.blank?
         .col-md-7.col-xs-8
-          %p#person-description.lead= allow_line_break @person.description      
+          %p#person-description.lead= allow_line_break @person.description
+  .bottom-border.bottom-padding
     .row.top-buffer
-      .col-md-3.col-md-offset-1
-        text
+      .col-md-10
+        %h1.section-title.float-right What can I do?
+    -if @person.skills.length > 0
+      .row.top-buffer
+        .col-md-10.col-md-offset-1
+          %p.section-subtitle   
+            %i.fa.fa-wrench{'aria-hidden' => true}
+            My Skills
+          - @person.skills.each do |skill|
+            .col-md-4.col-xs-6
+              .skill-border
+                %span.skill-text= skill.name
+                -if !skill.description.blank?
+                  %i.fa.fa-angle-double-right.float-right.gray.clickable{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Details', 'data-content' => skill.description }
+                

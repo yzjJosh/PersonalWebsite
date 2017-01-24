@@ -57,3 +57,6 @@ gem 'carrierwave', '~> 1.0'
 
 # Use mini magick for image processing
 gem "mini_magick"
+
+# Use font-awesome for fonts
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'

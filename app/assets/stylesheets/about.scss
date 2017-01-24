@@ -9,15 +9,16 @@
 }
 
 #profile-photo {
-    width: 250px;
+    width: 200px;
+    height: 200px;
 }
 
 .top-buffer { 
     margin-top:30px; 
 }
 
-.bottom-buffer {
-    margin-bottom: 30px;
+.bottom-padding {
+    padding-bottom: 30px;
 }
 
 .horizontal-center {
@@ -32,15 +33,43 @@
 }
 
 #person-description {
-    margin-top: 50px;
     font-size: 25px;
 }
 
 .section-title {
-    font-size: 70px;
+    font-size: 70px; 
+}
+
+.section-subtitle {
+    font-size: 25px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
 .bottom-border {
     border-bottom-style: solid;
     border-width: 1px;
+}
+
+.skill-border {
+    border-left-style: ridge;
+    border-left-width: 5px;
+    border-bottom-style: inset;
+    border-bottom-width: 2px;
+    padding-left: 10px;
+    padding-right: 10px; 
+    margin-top: 10px;
+}
+
+.skill-text {
+    font-size: 20px;
+    font-family: "Courier New", Courier, monospace;
+    color: #608dd6;
+}
+
+.float-right {
+    float: right;
+}
+
+.popover {
+    min-width: 200px;
 }

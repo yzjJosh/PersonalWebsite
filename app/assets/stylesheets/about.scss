@@ -55,8 +55,7 @@
     border-left-width: 5px;
     border-bottom-style: inset;
     border-bottom-width: 2px;
-    padding-left: 10px;
-    padding-right: 10px; 
+    padding: 10px;
     margin-top: 10px;
 }
 
@@ -72,4 +71,33 @@
 
 .popover {
     min-width: 200px;
+}
+
+.interest-border {
+    border: 1px solid #c9cfd8;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 10px; 
+}
+
+.interest-text {
+    font-size: 20px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    color: #c66e4b;
+}
+
+.language-border {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.language-name {
+    font-size: 20px;
+    font-family: Georgia, serif;
+}
+
+.language-proficiency {
+    font-family: "Courier New", Courier, monospace;
+    margin-left: 20px;
+    font-size: 12px;
 }

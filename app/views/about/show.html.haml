@@ -65,4 +65,29 @@
                 %span.skill-text= skill.name
                 -if !skill.description.blank?
                   %i.fa.fa-angle-double-right.float-right.gray.clickable{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Details', 'data-content' => skill.description }
+    -if @person.interests.length > 0
+      .row.top-buffer
+        .col-md-10.col-md-offset-1
+          %p.section-subtitle
+            %i.fa.fa-futbol-o{'aria-hidden' => true}
+            My Interests
+          -@person.interests.each do |interest|
+            .col-md-4.col-xs-6
+              .interest-border
+                %span.interest-text= interest.name
+                -if !interest.description.blank?
+                  %i.fa.fa-angle-double-right.float-right.gray.clickable{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Details', 'data-content' => interest.description }
+    -if @person.languages.length > 0
+      .row.top-buffer
+        .col-md-10.col-md-offset-1
+          %p.section-subtitle
+            %i.fa.fa-language{'aria-hidden' => true}
+            Languages I Know
+          -@person.languages.each do |language|
+            .col-md-4.col-xs-6
+              .language-border
+                %span.language-name= language.name
+                -if !language.proficiency.blank?
+                  %span.label.label-info.language-proficiency.clickable{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Language Proficiency', 'data-content' => language.proficiency}= language.proficiency
+
                 

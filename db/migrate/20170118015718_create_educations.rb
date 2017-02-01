@@ -3,6 +3,7 @@ class CreateEducations < ActiveRecord::Migration[5.0]
     create_table :educations do |t|
       t.string :school
       t.string :degree
+      t.string :major
       t.string :location
       t.timestamp :start_time
       t.timestamp :end_time

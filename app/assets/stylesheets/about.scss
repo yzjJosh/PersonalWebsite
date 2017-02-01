@@ -1,8 +1,10 @@
 $img-dim: 200px;
 
-.carousel .item{
-    background: #616366;
-    height: 600px;
+.carousel {
+    .item{
+        background: #616366;
+        height: 600px;
+    }
 }
 
 .img {
@@ -45,6 +47,7 @@ $img-dim: 200px;
 .section-subtitle {
     font-size: 25px;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-weight: bold;
 }
 
 .bottom-border {
@@ -111,10 +114,6 @@ $img-dim: 200px;
     max-height: $img-dim;
 }
 
-.education-location {
-    margin-right: 50px;
-}
-
 .education-time {
     font-style: italic;
 }
@@ -125,9 +124,11 @@ $img-dim: 200px;
     font-style: italic;
 }
 
-.education-table td {
-    padding-top: 10px;
-    padding-bottom: 10px;
+.education-table {
+    td {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
 }
 
 .table-legend {
@@ -142,18 +143,10 @@ $img-dim: 200px;
     font-family: "Times New Roman", Times, serif;
 }
 
-.link {
-    color: #6490d6;
-    cursor: pointer;
-}
-
-.link:hover {
-    text-shadow: 1px 1px 1px #555;
-}
-
 .project-area {
     padding: 10px;
-    width: 600px;
+    min-width: 500px;
+    max-width: 800px;
 }
 
 .project-name {
@@ -166,31 +159,87 @@ $img-dim: 200px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.project-description-list {
+.non-indent-list {
     list-style-position: none;
     list-style-type: disc;
     padding-left: 20px;
 }
 
-.course-item {
-    font-family: Tahoma, Geneva, sans-serif;
+#education-section {
+    .course-item,
+    .project-item  {
+        font-family: Tahoma, Geneva, sans-serif;
+        font-size: 18px;
+    }
+}
+
+.left-buffer {
+    margin-left: 10px;
+}
+
+.popover-icon {
+    font-size: 15px;
+    color: #6490d6;
+}
+
+.link {
+    color: #6490d6;
+}
+
+.link:not(.disabled) {
+    cursor: pointer;
+}
+
+.link:not(.disabled):hover {
+    text-shadow: 1px 1px 1px #555;
+}
+
+.border-link {
     padding: 10px 10px 10px 0px; 
 }
 
-.course-item.clickable:hover {
+.border-link:not(.disabled) {
+    cursor: pointer; 
+}
+
+.border-link:not(.disabled):hover {
     border: 1px solid #6490d6;
     border-radius: 20px;
     padding-left: 10px;
 }
 
-.project-item {
-    font-family: Tahoma, Geneva, sans-serif;
-    padding: 10px 10px 10px 0px; 
+.job-img {
+    max-width: $img-dim;
+    max-height: $img-dim;
 }
 
-.project-item.clickable:hover {
-    border: 1px solid #6490d6;
-    border-radius: 20px;
-    padding-left: 10px;
+.job-title {
+    font-size: 16px;
+    font-family: "Lucida Console", Monaco, monospace; 
 }
 
+.job-time {
+    font-style: italic;
+}
+
+.job-description-line {
+    font-size: 20px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.job-project-section {
+    margin-top: 15px;
+}
+
+.job-project-section-title {
+    font-weight: bold;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-family: Verdana, Geneva, sans-serif; 
+}
+
+#job-section {
+    .project-item {
+        font-size: 18px; 
+    }
+}

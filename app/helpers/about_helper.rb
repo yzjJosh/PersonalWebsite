@@ -33,8 +33,8 @@ module AboutHelper
     def project_detail_tag(project)
         description_tag = nil
         if !project.description.blank?
-            description_tag = "<ul class='project-description-list'>"
-            project.description.split(/\n/).each do |line|
+            description_tag = "<ul class='non-indent-list'>"
+            split_line(project.description).each do |line|
                 description_tag += "<li><p class='project-description'>#{line}</p></li>"
             end
             description_tag += "</ul>"

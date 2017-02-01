@@ -5,7 +5,8 @@
 $ -> 
     $('[data-toggle="popover"]').popover({      
         trigger: 'hover',
-        html: true
+        html: true,
+        container: 'body'
     })
 
     $('.expand-link').click((event) -> 
@@ -22,5 +23,7 @@ $ ->
         $("##{link_id}").removeAttr('hidden')
         $("##{content_id}").attr('hidden', true)
     )
+
+    $('.border-link:not(.disabled)').append("<i class='fa fa-comment popover-icon left-buffer'/>");
 
 

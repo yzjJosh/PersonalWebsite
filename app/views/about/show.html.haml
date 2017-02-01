@@ -141,8 +141,12 @@
                         %li.project-item.clickable{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Project Detail', 'data-content' => project_detail_tag(project)}
                           %span= project.name 
   -if @person.jobs.length > 0
-    .bottom-border.bottom-padding
+    .bottom-border
       .row.top-buffer
         .col-md-10
           %h1.section-title.float-right Where do I work?
+      - @person.jobs.each do |job|
+        .row.top-buffer.bottom-padding
+
+
                 

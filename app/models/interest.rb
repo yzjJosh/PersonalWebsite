@@ -1,5 +1,5 @@
 class Interest < ApplicationRecord
-  belongs_to :person, counter_cache: true
+  belongs_to :person
 
   validates :name, presence: true
 

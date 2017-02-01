@@ -12,8 +12,8 @@ class EducationAndJobValidator < ActiveModel::Validator
 end
 
 class Project < ApplicationRecord
-  belongs_to :education, optional: true, counter_cache: true
-  belongs_to :job, optional: true, counter_cache: true
+  belongs_to :education, optional: true
+  belongs_to :job, optional: true
 
   validates :name, :start_time, presence: true
   validates_with EducationAndJobValidator

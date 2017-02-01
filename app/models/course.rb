@@ -1,5 +1,5 @@
 class Course < ApplicationRecord
-  belongs_to :education, counter_cache: true
+  belongs_to :education
 
   validates :name, presence: true
 end

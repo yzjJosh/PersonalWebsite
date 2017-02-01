@@ -1,3 +1,5 @@
+$img-dim: 200px;
+
 .carousel .item{
     background: #616366;
     height: 600px;
@@ -9,12 +11,12 @@
 }
 
 #profile-photo {
-    width: 200px;
-    height: 200px;
+    max-width: $img-dim;
+    max-height: $img-dim;
 }
 
 .top-buffer { 
-    margin-top:30px; 
+    margin-top: 30px; 
 }
 
 .bottom-padding {
@@ -55,13 +57,14 @@
     border-left-width: 5px;
     border-bottom-style: inset;
     border-bottom-width: 2px;
+    border-radius: 20px;
     padding: 10px;
     margin-top: 10px;
 }
 
 .skill-text {
     font-size: 20px;
-    font-family: "Courier New", Courier, monospace;
+    font-family: Georgia, serif; 
     color: #608dd6;
 }
 
@@ -70,6 +73,7 @@
 }
 
 .popover {
+    max-width: 100%;
     min-width: 200px;
 }
 
@@ -101,3 +105,92 @@
     margin-left: 20px;
     font-size: 12px;
 }
+
+.education-img {
+    max-width: $img-dim;
+    max-height: $img-dim;
+}
+
+.education-location {
+    margin-right: 50px;
+}
+
+.education-time {
+    font-style: italic;
+}
+
+.education-description {
+    font-weight: 200;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.education-table td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.table-legend {
+    width: 200px;
+    font-weight: bold;
+    font-size: 16px;
+    vertical-align: top;
+}
+
+.table-content {
+    font-size: 16px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.link {
+    color: #6490d6;
+    cursor: pointer;
+}
+
+.link:hover {
+    text-shadow: 1px 1px 1px #555;
+}
+
+.project-area {
+    padding: 10px;
+    width: 600px;
+}
+
+.project-name {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.project-time {
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.project-description-list {
+    list-style-position: none;
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.course-item {
+    font-family: Tahoma, Geneva, sans-serif;
+    padding: 10px 10px 10px 0px; 
+}
+
+.course-item.clickable:hover {
+    border: 1px solid #6490d6;
+    border-radius: 20px;
+    padding-left: 10px;
+}
+
+.project-item {
+    font-family: Tahoma, Geneva, sans-serif;
+    padding: 10px 10px 10px 0px; 
+}
+
+.project-item.clickable:hover {
+    border: 1px solid #6490d6;
+    border-radius: 20px;
+    padding-left: 10px;
+}
+

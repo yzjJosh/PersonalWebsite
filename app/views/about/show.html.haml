@@ -49,45 +49,97 @@
       -if !@person.description.blank?
         .col-md-7.col-xs-8
           %p#person-description.lead= allow_line_break @person.description
-  .bottom-border.bottom-padding
-    .row.top-buffer
-      .col-md-10
-        %h1.section-title.float-right What can I do?
-    -if @person.skills.length > 0
+  -if @person.skills.length + @person.interests.length + @person.languages.length > 0
+    .bottom-border.bottom-padding
       .row.top-buffer
-        .col-md-10.col-md-offset-1
-          %p.section-subtitle   
-            %i.fa.fa-wrench{'aria-hidden' => true}
-            My Skills
-          - @person.skills.each do |skill|
-            .col-md-4.col-xs-6
-              .skill-border
-                %span.skill-text= skill.name
-                -if !skill.description.blank?
-                  %i.fa.fa-angle-double-right.float-right.gray.clickable{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Details', 'data-content' => skill.description }
-    -if @person.interests.length > 0
+        .col-md-10
+          %h1.section-title.float-right What can I do?
+      -if @person.skills.length > 0
+        .row.top-buffer
+          .col-md-10.col-md-offset-1
+            %p.section-subtitle   
+              %i.fa.fa-wrench{'aria-hidden' => true}
+              My Skills
+            - @person.skills.each do |skill|
+              .col-md-4.col-xs-6
+                .skill-border
+                  %span.skill-text= skill.name
+                  -if !skill.description.blank?
+                    %i.fa.fa-angle-double-right.float-right.gray.clickable{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Details', 'data-content' => skill.description }
+      -if @person.interests.length > 0
+        .row.top-buffer
+          .col-md-10.col-md-offset-1
+            %p.section-subtitle
+              %i.fa.fa-futbol-o{'aria-hidden' => true}
+              My Interests
+            -@person.interests.each do |interest|
+              .col-md-4.col-xs-6
+                .interest-border
+                  %span.interest-text= interest.name
+                  -if !interest.description.blank?
+                    %i.fa.fa-angle-double-right.float-right.gray.clickable{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Details', 'data-content' => interest.description }
+      -if @person.languages.length > 0
+        .row.top-buffer
+          .col-md-10.col-md-offset-1
+            %p.section-subtitle
+              %i.fa.fa-language{'aria-hidden' => true}
+              Languages I Know
+            -@person.languages.each do |language|
+              .col-md-4.col-xs-6
+                .language-border
+                  %span.language-name= language.name
+                  -if !language.proficiency.blank?
+                    %span.label.label-info.language-proficiency.clickable{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Language Proficiency', 'data-content' => language.proficiency}= language.proficiency
+  -if @person.educations.length > 0
+    .bottom-border
       .row.top-buffer
-        .col-md-10.col-md-offset-1
-          %p.section-subtitle
-            %i.fa.fa-futbol-o{'aria-hidden' => true}
-            My Interests
-          -@person.interests.each do |interest|
-            .col-md-4.col-xs-6
-              .interest-border
-                %span.interest-text= interest.name
-                -if !interest.description.blank?
-                  %i.fa.fa-angle-double-right.float-right.gray.clickable{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Details', 'data-content' => interest.description }
-    -if @person.languages.length > 0
+        .col-md-10.col-md-offset-2
+          %h1.section-title Where do I learn?
+      - @person.educations.each do |education| 
+        .row.top-buffer.bottom-padding
+          .col-xs-3.col-md-offset-1
+            %img.education-img.horizontal-center{:src => education.photo.to_s, :alt => education.school, :title => education.school}
+          .col-md-7.col-xs-9
+            %p.section-subtitle= education.school
+            %p.gray
+              -if !education.location.blank?
+                %span.education-location= education.location
+              %small.education-time= time_range education.start_time, education.end_time
+            -if !education.description.blank?
+              %p.education-description= education.description
+            %table.education-table
+              %tr
+                %td.table-legend DEGREE
+                %td.table-content= education.degree
+              -if !education.GPA.blank?
+                %tr
+                  %td.table-legend GPA
+                  %td.table-content= gpa education.GPA, education.GPA_scale
+              -if education.courses.length > 0
+                %tr
+                  %td.table-legend COURSES
+                  %td.table-content
+                    %small.link.expand-link{:id => "education_course-expand-#{education.id}"}= "Click to view all #{education.courses.length} courses"
+                    %ul.list-unstyled{:hidden => true, :id => "education_course-content-#{education.id}"}
+                      %li
+                        %small.link.hide-link{:id=> "education_course-hide-#{education.id}"}= "Click to hide courses"
+                      - education.courses.each do |course|
+                        %li.course-item{:class => ('clickable' if !course.description.blank?), 'aria-hidden' => true, 'data-toggle' => ('popover' if !course.description.blank?), 'data-placement' => 'top', :title => ('Course Detail' if !course.description.blank?), 'data-content' => course.description}
+                          %span= course.name  
+              -if education.projects.length > 0
+                %tr
+                  %td.table-legend PROJECTS
+                  %td.table-content
+                    %small.link.expand-link{:id => "education_project-expand-#{education.id}"}= "Click to view all #{education.projects.length} projects"
+                    %ul.list-unstyled{:hidden => true, :id => "education_project-content-#{education.id}"}
+                      %li
+                        %small.link.hide-link{:id=> "education_project-hide-#{education.id}"}= "Click to hide projects"
+                      - education.projects.each do |project|
+                        %li.project-item.clickable{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Project Detail', 'data-content' => project_detail_tag(project)}
+                          %span= project.name 
+  -if @person.jobs.length > 0
+    .bottom-border.bottom-padding
       .row.top-buffer
-        .col-md-10.col-md-offset-1
-          %p.section-subtitle
-            %i.fa.fa-language{'aria-hidden' => true}
-            Languages I Know
-          -@person.languages.each do |language|
-            .col-md-4.col-xs-6
-              .language-border
-                %span.language-name= language.name
-                -if !language.proficiency.blank?
-                  %span.label.label-info.language-proficiency.clickable{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Language Proficiency', 'data-content' => language.proficiency}= language.proficiency
-
+        .col-md-10
+          %h1.section-title.float-right Where do I work?
                 

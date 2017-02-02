@@ -26,7 +26,7 @@
 
 
 .container-fluid
-  .bottom-border.bottom-padding#introduction-section
+  .bottom-padding#introduction-section
     .row.top-buffer
       .col-md-10.col-md-offset-2
         %h1.section-title Who am I?
@@ -50,7 +50,7 @@
         .col-md-7.col-xs-8
           %p#person-description.lead= allow_line_break @person.description
   -if @person.skills.length + @person.interests.length + @person.languages.length > 0
-    .bottom-border.bottom-padding#skill-section
+    .top-border.bottom-padding#skill-section
       .row.top-buffer
         .col-md-10
           %h1.section-title.float-right What can I do?
@@ -91,7 +91,7 @@
                   -if !language.proficiency.blank?
                     %span.label.label-info.language-proficiency.clickable{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Language Proficiency', 'data-content' => language.proficiency}= language.proficiency
   -if @person.educations.length > 0
-    .bottom-border#education-section
+    .top-border#education-section
       .row.top-buffer
         .col-md-10.col-md-offset-2
           %h1.section-title Where do I learn?
@@ -128,7 +128,7 @@
                     %small.link.expand-link{:id => "education_course-expand-#{education.id}"}= "Click to view all #{education.courses.length} courses"
                     %ul.list-unstyled{:hidden => true, :id => "education_course-content-#{education.id}"}
                       %li
-                        %small.link.hide-link{:id=> "education_course-hide-#{education.id}"}= "Click to hide courses"
+                        %small.link.hide-link{:id=> "education_course-hide-#{education.id}"} Click to hide courses
                       - education.courses.each do |course|
                         %li.course-item.border-link{:class => ('disabled' if course.description.blank?), 'aria-hidden' => true, 'data-toggle' => ('popover' if !course.description.blank?), 'data-placement' => 'top', :title => ('Course Detail' if !course.description.blank?), 'data-content' => course.description}
                           %span= course.name  
@@ -139,18 +139,20 @@
                     %small.link.expand-link{:id => "education_project-expand-#{education.id}"}= "Click to view all #{education.projects.length} projects"
                     %ul.list-unstyled{:hidden => true, :id => "education_project-content-#{education.id}"}
                       %li
-                        %small.link.hide-link{:id=> "education_project-hide-#{education.id}"}= "Click to hide projects"
+                        %small.link.hide-link{:id=> "education_project-hide-#{education.id}"} Click to hide projects
                       - education.projects.each do |project|
                         %li.project-item.border-link{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Project Detail', 'data-content' => project_detail_tag(project)}
                           %span= project.name 
   -if @person.jobs.length > 0
-    .bottom-border#job-section
+    .top-border#job-section
       .row.top-buffer
         .col-md-10
           %h1.section-title.float-right Where do I work?
       - @person.jobs.each do |job|
         .row.top-buffer.bottom-padding
-          .col-md-7.col-md-offset-1.col-xs-9
+          .col-xs-3.col-md-offset-1
+            %img.job-img.horizontal-center{:src => job.photo.to_s, :alt => job.company, :title => job.company}
+          .col-md-7.col-xs-9
             %p.section-subtitle= job.company
             %p.job-title= job.title
             .row.gray
@@ -161,14 +163,18 @@
                 %p
                   %small.job-time= time_range job.start_time, job.end_time
             -if !job.description.blank?
-              %ul.non-indent-list
-                - split_line(job.description).each do |line|
-                  %li
-                    %p.job-description-line= line
+              - lines = split_line(job.description)
+              - if lines.length == 1
+                %p.job-description-line= lines[0]
+              - else
+                %ul.non-indent-list
+                  - lines.each do |line|
+                    %li
+                      %p.job-description-line= line
             -if job.projects.length > 0
               %p.link.expand-link{:id => "job_project-expand-#{job.id}"}= "Click to view all #{job.projects.length} projects in #{job.company}"
               %div{:hidden => true, :id => "job_project-content-#{job.id}"} 
-                %p.link.hide-link{:id => "job_project-hide-#{job.id}"}= "Click to hide projects"
+                %p.link.hide-link{:id => "job_project-hide-#{job.id}"} Click to hide projects
                 .row.job-project-section
                   .col-xs-12                  
                     %p.job-project-section-title= "Projects at #{job.company}"
@@ -176,8 +182,12 @@
                     .col-md-6.col-xs-12
                       .project-item.border-link{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Project Detail', 'data-content' => project_detail_tag(project)}
                         %span= project.name
-          .col-xs-3
-            %img.job-img.horizontal-center{:src => job.photo.to_s, :alt => job.company, :title => job.company}
+  -if @person.honors.length + @person.publications.length > 0
+    .top-border.bottom-padding#honor-section
+      .row.top-buffer
+        .col-md-10.col-md-offset-1
+          %h1.section-title What am I proud of? 
+          
 
 
                 

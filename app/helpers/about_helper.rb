@@ -33,16 +33,25 @@ module AboutHelper
     def project_detail_tag(project)
         description_tag = nil
         if !project.description.blank?
-            description_tag = "<ul class='non-indent-list'>"
-            split_line(project.description).each do |line|
-                description_tag += "<li><p class='project-description'>#{line}</p></li>"
+            lines = split_line(project.description)
+            if lines.length > 1
+                description_tag = "<ul class='non-indent-list'>"
+                lines.each do |line|
+                    description_tag += "<li><p class='project-description'>#{line}</p></li>"
+                end
+                description_tag += "</ul>"
+            else
+                description_tag = "<p class='project-description'>#{lines[0]}</p>"
             end
-            description_tag += "</ul>"
         end
         ("<div class='project-area'>\n" +
          "  <p class='project-name'>#{project.name}</p>\n" +
          "  <p class='gray project-time'>#{time_range project.start_time, project.end_time}</p>\n" +
          "  #{description_tag}\n" +
          "</div>").html_safe
+    end
+
+    def common_description_tag(description)
+        "<p class='common-description'>#{description}</p>"
     end
 end

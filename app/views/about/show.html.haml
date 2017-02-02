@@ -65,7 +65,7 @@
                 .skill-border
                   %span.skill-text= skill.name
                   -if !skill.description.blank?
-                    %i.fa.fa-angle-double-right.popover-icon.float-right.clickable{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Details', 'data-content' => skill.description }
+                    %i.fa.fa-angle-double-right.popover-icon.float-right.clickable{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Details', 'data-content' => common_description_tag(skill.description) }
       -if @person.interests.length > 0
         .row.top-buffer
           .col-md-10.col-md-offset-1
@@ -77,7 +77,7 @@
                 .interest-border
                   %span.interest-text= interest.name
                   -if !interest.description.blank?
-                    %i.fa.fa-angle-double-right.popover-icon.float-right.clickable{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Details', 'data-content' => interest.description }
+                    %i.fa.fa-angle-double-right.popover-icon.float-right.clickable{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Details', 'data-content' => common_description_tag(interest.description) }
       -if @person.languages.length > 0
         .row.top-buffer
           .col-md-10.col-md-offset-1
@@ -89,7 +89,7 @@
                 .language-border
                   %span.language-name= language.name
                   -if !language.proficiency.blank?
-                    %span.label.label-info.language-proficiency.clickable{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Language Proficiency', 'data-content' => language.proficiency}= language.proficiency
+                    %span.label.label-info.language-proficiency.clickable{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Language Proficiency', 'data-content' => common_description_tag(language.proficiency)}= language.proficiency
   -if @person.educations.length > 0
     .top-border#education-section
       .row.top-buffer
@@ -165,12 +165,12 @@
             -if !job.description.blank?
               - lines = split_line(job.description)
               - if lines.length == 1
-                %p.job-description-line= lines[0]
+                %p.job-description= lines[0]
               - else
                 %ul.non-indent-list
                   - lines.each do |line|
                     %li
-                      %p.job-description-line= line
+                      %p.job-description= line
             -if job.projects.length > 0
               %p.link.expand-link{:id => "job_project-expand-#{job.id}"}= "Click to view all #{job.projects.length} projects in #{job.company}"
               %div{:hidden => true, :id => "job_project-content-#{job.id}"} 
@@ -179,7 +179,7 @@
                   .col-xs-12                  
                     %p.job-project-section-title= "Projects at #{job.company}"
                   - job.projects.each do |project|
-                    .col-md-6.col-xs-12
+                    .col-md-6
                       .project-item.border-link{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Project Detail', 'data-content' => project_detail_tag(project)}
                         %span= project.name
   -if @person.honors.length + @person.publications.length > 0

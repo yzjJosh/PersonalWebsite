@@ -159,6 +159,16 @@ $img-dim: 200px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.project-description,
+.common-description {
+    font-size: 18px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.common-description {
+    max-width: 500px;
+}
+
 .non-indent-list {
     list-style-position: none;
     list-style-type: disc;
@@ -195,7 +205,8 @@ $img-dim: 200px;
 }
 
 .border-link {
-    padding: 10px 10px 10px 0px; 
+    padding: 10px 10px 10px 0px;
+    border: 1px solid transparent; 
 }
 
 .border-link:not(.disabled) {
@@ -203,7 +214,7 @@ $img-dim: 200px;
 }
 
 .border-link:not(.disabled):hover {
-    border: 1px solid #6490d6;
+    border-color: #6490d6; 
     border-radius: 20px;
     padding-left: 10px;
 }
@@ -222,7 +233,7 @@ $img-dim: 200px;
     font-style: italic;
 }
 
-.job-description-line {
+.job-description {
     font-size: 20px;
     font-family: "Times New Roman", Times, serif;
 }
@@ -243,3 +254,4 @@ $img-dim: 200px;
         font-size: 18px; 
     }
 }
+

@@ -175,9 +175,8 @@
               %p.link.expand-link{:id => "job_project-expand-#{job.id}"}= "Click to view all #{job.projects.length} projects in #{job.company}"
               %div{:hidden => true, :id => "job_project-content-#{job.id}"} 
                 %p.link.hide-link{:id => "job_project-hide-#{job.id}"} Click to hide projects
+                %p.job-project-section-title= "Projects at #{job.company}"
                 .row.job-project-section
-                  .col-xs-12                  
-                    %p.job-project-section-title= "Projects at #{job.company}"
                   - job.projects.each do |project|
                     .col-md-6
                       .project-item.border-link{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Project Detail', 'data-content' => project_detail_tag(project)}

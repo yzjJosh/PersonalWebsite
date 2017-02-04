@@ -27,6 +27,7 @@
 
 .container-fluid
   .bottom-padding#introduction-section
+    - section_num = 1
     .row.top-buffer
       .col-md-10.col-md-offset-2
         %h1.section-title Who am I?
@@ -50,10 +51,15 @@
         .col-md-7.col-xs-8
           %p#person-description.lead= allow_line_break @person.description
   -if @person.skills.length + @person.interests.length + @person.languages.length > 0
+    - section_num += 1
     .top-border.bottom-padding#skill-section
       .row.top-buffer
-        .col-md-10
-          %h1.section-title.float-right What can I do?
+        - if section_num%2 == 0
+          .col-md-10
+            %h1.section-title.float-right What can I do?
+        - else
+          .col-md-10.col-md-offset-2
+            %h1.section-title What can I do?
       -if @person.skills.length > 0
         .row.top-buffer
           .col-md-10.col-md-offset-1
@@ -91,10 +97,15 @@
                   -if !language.proficiency.blank?
                     %span.label.label-info.language-proficiency.clickable{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Language Proficiency', 'data-content' => common_description_tag(language.proficiency)}= language.proficiency
   -if @person.educations.length > 0
+    - section_num += 1
     .top-border#education-section
       .row.top-buffer
-        .col-md-10.col-md-offset-2
-          %h1.section-title Where do I learn?
+        - if section_num%2 == 0
+          .col-md-10
+            %h1.section-title.float-right Where do I learn?
+        - else
+          .col-md-10.col-md-offset-2
+            %h1.section-title Where do I learn?
       - @person.educations.each do |education| 
         .row.top-buffer.bottom-padding
           .col-xs-3.col-md-offset-1
@@ -144,10 +155,15 @@
                         %li.project-item.border-link{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Project Detail', 'data-content' => project_detail_tag(project)}
                           %span= project.name 
   -if @person.jobs.length > 0
+    - section_num += 1
     .top-border#job-section
       .row.top-buffer
-        .col-md-10
-          %h1.section-title.float-right Where do I work?
+        - if section_num%2 == 0
+          .col-md-10
+            %h1.section-title.float-right Where do I work?
+        - else
+          .col-md-10.col-md-offset-2
+            %h1.section-title Where do I work?
       - @person.jobs.each do |job|
         .row.top-buffer.bottom-padding
           .col-xs-3.col-md-offset-1
@@ -181,12 +197,60 @@
                     .col-md-6
                       .project-item.border-link{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Project Detail', 'data-content' => project_detail_tag(project)}
                         %span= project.name
-  -if @person.honors.length + @person.publications.length > 0
+  -if @person.honors.length > 0
+    - section_num += 1
     .top-border.bottom-padding#honor-section
       .row.top-buffer
-        .col-md-10.col-md-offset-1
-          %h1.section-title What am I proud of? 
-          
+        - if section_num%2 == 0
+          .col-md-10
+            %h1.section-title.float-right What am I proud of?
+        - else
+          .col-md-10.col-md-offset-2
+            %h1.section-title What am I proud of?
+      - @person.honors.each do |honor|
+        .row.top-buffer
+          .col-md-10.col-md-offset-1
+            %p.honor-name= honor.name
+            %p
+              %small.gray.italic granted by
+              %scan.honor-granted-by= honor.granted_by
+            .row.gray
+              - if !honor.location.blank?
+                .col-xs-6
+                  %p.honor-location= honor.location
+              .col-xs-6
+                %small.honor-time= time honor.time
+            - lines = split_line honor.description
+            - if lines.length > 1
+              %ul.non-indent-list
+                - lines.each do |line|
+                  %li
+                    %p.honor-description= line
+            - else
+              %p.honor-description= lines[0]
+  -if @person.publications.length > 0
+    - section_num += 1
+    .top-border.bottom-padding#publication-section
+      .row.top-buffer
+        - if section_num%2 == 0
+          .col-md-10
+            %h1.section-title.float-right What have I published?
+        - else
+          .col-md-10.col-md-offset-2
+            %h1.section-title What have I published?
+      - @person.publications.each do |publication|
+        .row.top-buffer
+          .col-md-10.col-md-offset-1
+            %p.publication-name= publication.name
+            %p.gray
+              %small.publication-time= time publication.time
+            - lines = split_line publication.description
+            - if lines.length > 1
+              %ul.non-indent-list
+                - lines.each do |line|
+                  %li
+                    %p.publication-description= line
+            - else
+              %p.publication-description= lines[0]
 
 
-                

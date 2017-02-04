@@ -255,3 +255,36 @@ $img-dim: 200px;
     }
 }
 
+.honor-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.honor-granted-by {
+    font-size: 13px;
+    font-family: "Lucida Console", Monaco, monospace; 
+    margin-left: 10px; 
+}
+
+.honor-time {
+    font-style: italic;
+}
+
+.honor-description {
+    font-size: 18px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.publication-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.publication-time {
+    font-style: italic;
+}
+
+.publication-description {
+    font-size: 18px;
+    font-family: "Times New Roman", Times, serif;
+}

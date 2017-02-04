@@ -36,3 +36,7 @@ footer {
 .clickable {
     cursor: pointer;
 }
+
+.italic {
+    font-style: italic;
+}

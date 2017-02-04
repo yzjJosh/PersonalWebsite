@@ -1,3 +1,5 @@
+## Introduction
+
 This project is Zijiang Yang's personal website www.zijiangyang.com
 
 The website uses ruby on rails framework, runs under ruby 2.3.1.
@@ -6,8 +8,9 @@ It runs on a single server, using sqlite3 as database software. All data are sto
 
 It contains a simple welcome page and a personal resume. The resume data is organized and stored in database.
 
-Database design:
+## Database design:
 
+```
 Person {
     id: integer (primary key, required)
     name: string (required)
@@ -23,7 +26,9 @@ Person {
     wechat_qrcode: string    
     description: text
 }
+```
 
+```
 Job {
     id: integer (primary key, required)
     company: string (required)
@@ -35,11 +40,14 @@ Job {
     description: text
     person_id: integer (required, foreign key)
 }
+```
 
+```
 Education {
     id: integer (primary key, required)
     school: string (required)
     degree: string (required)
+    major: string (required)
     location: string
     start_time: datetime (required)
     end_time: datetime
@@ -49,7 +57,9 @@ Education {
     description: text
     person_id: integer (required, foreign key)
 }
+```
 
+```
 Honor {
     id: integer (primary key, required)
     name: string (required)
@@ -59,7 +69,9 @@ Honor {
     description: text
     person_id: integer (required, foreign key)
 }
+```
 
+```
 Project {
     id: integer (primary key, required)
     name: string (required)
@@ -69,14 +81,18 @@ Project {
     education_id: integer (foreign key)
     job_id: integer (foreign key)
 }
+```
 
+```
 Course {
     id: integer (primary key, required)
     name: string (required)
     description: text
     education_id: integer (foreign key)
 }
+```
 
+```
 Publication {
     id: integer (primary key, required)
     name: string (required)
@@ -84,51 +100,71 @@ Publication {
     description: text
     person_id: integer (required, foreign key)
 }
+```
 
+```
 Interest {
     id: integer (primary key, required)
     name: string (required)
     description: text
     person_id: integer (required, foreign key)
 }
+```
 
+```
 Skill {
     id: integer (primary key, required)
     name: string (required)
     description: text
     person_id: integer (required, foreign key)
 }
+```
 
+```
 Language {
     id: integer (primary key, required)
     name: string (required)
     proficiency: string
     person_id: integer (required, foreign key)
 }
+```
 
+```
 Slide {
     id: integer (primary key, required)
     title: string (required)
     content: text
     background: string
 }
+```
 
-Deployment:
+##Deployment:
 
 Please make sure that "graphicsmagick" and "passenger" are already installed in the server.
 
 Before starting the server, please firstly create the database using following command:
 
-"rails db:migrate"
+```
+rails db:migrate
+```
 
 This command will create database in your local disk.
 
-Then, run "bundle install" to install required ruby gems.
+Then, run following command to install required ruby gems:
 
-To deploy this project in production stage, you need to set an Environment variable SECRET_KEY_BASE. Its value should be a long random string, you can generate one by running "rails secret" command.
+``` 
+bundle install
+```
+
+To deploy this project in production stage, you need to set an Environment variable SECRET_KEY_BASE. Its value should be a long random string, you can generate one by running command
+
+```
+rails secret
+```
 
 Then, create a file named Passengerfile.json, which looks like this:
 
+```
 {
   // Run the app in a production environment. The default value is "development".
   "environment": "production",
@@ -140,5 +176,10 @@ Then, create a file named Passengerfile.json, which looks like this:
   // if Passenger was started with root privileges.
   "user": "YOUR USER NAME"
 }
+```
 
-Then, execute "rvmsudo bundle exec passenger start"
+Then, execute following command to start the server
+
+```
+rvmsudo bundle exec passenger start
+```

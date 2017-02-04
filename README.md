@@ -140,52 +140,57 @@ Slide {
 
 ##Deployment:
 
-Please make sure that "graphicsmagick" and "passenger" are already installed in the server.
+###1. Make sure you have already installed required softwares
+  * Ruby
+  * Rails
+  * Passenger
+  * GraphicsMagick
 
-Before starting the server, please firstly create the database using following command:
+###2. Set up environment variables
+  ```
+  export RAILS_ENV=production
+  export RAILS_SERVE_STATIC_FILES=true
+  export SECRET_KEY_BASE=some random string
+  ```
+  Note that the "SECRET_KEY_BASE" should be a random long string. It is recommended to run "rails secret" to generate one.
 
-```
-rails db:migrate
-```
+###3. Prepare for the deployment
+  * Install required gems by running
+    ```
+    bundle install
+    ```
+  * If you do not have a database, generate one by running
+    ```
+    rails db:schema:load
+    ```
+    If you already have a databse, update it by running
+    ```
+    rails db:migrate
+    ```
+  * Precompile assets by running
+    ```
+    rails assets:precompile
+    ```
 
-This command will create database in your local disk.
+  * Config the server. You should create a file "Passengerfile.json" in this app's folder:
+    ```
+    {
+        // Run the app in a production environment. The default value is "development".
+        "environment": "production",
+        // Run Passenger on port 80, the standard HTTP port.
+        "port": 80,
+        // Tell Passenger to daemonize into the background.
+        "daemonize": true,
+        // Tell Passenger to run the app as the given user. Only has effect
+        // if Passenger was started with root privileges.
+        "user": "YOUR USER NAME"
+    }
+    ```
 
-Then, run following command to install required ruby gems:
-
-``` 
-bundle install
-```
-
-Then, run following command to precompile asset files:
-
-```
-rails assets:precompile
-```
-
-To deploy this project in production stage, you need to set an Environment variable SECRET_KEY_BASE. Its value should be a long random string, you can generate one by running command
-
-```
-rails secret
-```
-
-Then, create a file named Passengerfile.json, which looks like this:
-
-```
-{
-  // Run the app in a production environment. The default value is "development".
-  "environment": "production",
-  // Run Passenger on port 80, the standard HTTP port.
-  "port": 80,
-  // Tell Passenger to daemonize into the background.
-  "daemonize": true,
-  // Tell Passenger to run the app as the given user. Only has effect
-  // if Passenger was started with root privileges.
-  "user": "YOUR USER NAME"
-}
-```
-
-Then, execute following command to start the server
-
-```
-rvmsudo bundle exec passenger start
-```
+###4. Start the server
+  You can start server by running
+  ```
+  rvmsudo bundle exec passenger start
+  ```
+  
+  Note that you need to input data into database for this app to work correctly.

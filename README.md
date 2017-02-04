@@ -190,7 +190,7 @@ Slide {
 ###4. Start the server
   You can start server by running
   ```
-  rvmsudo bundle exec passenger start
+  rvmsudo -E bundle exec passenger start
   ```
   
   Note that you need to input data into database for this app to work correctly.

@@ -34,3 +34,6 @@ Passengerfile.json
 
 # Ignore uploaded files
 /public/uploads
+
+# Ignore precompiled assets
+/public/assets

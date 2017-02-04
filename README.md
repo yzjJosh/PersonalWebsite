@@ -156,6 +156,12 @@ Then, run following command to install required ruby gems:
 bundle install
 ```
 
+Then, run following command to precompile asset files:
+
+```
+rails assets:precompile
+```
+
 To deploy this project in production stage, you need to set an Environment variable SECRET_KEY_BASE. Its value should be a long random string, you can generate one by running command
 
 ```

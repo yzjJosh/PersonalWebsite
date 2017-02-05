@@ -11,7 +11,7 @@
       - @slides.length.times do |i|
         .item{:class => ('active' if i==0)}
           - if !@slides[i].background.blank?
-            .img{:style => "background: url(#{@slides[i].background.to_s}); background-size: contain; background-repeat: no-repeat; background-position: center;"}
+            = scaled_center_img_tag @slides[i].background.to_s
           .container
             .carousel-caption
               %h1= @slides[i].title
@@ -109,7 +109,8 @@
       - (@person.educations.sort_by {|education| [- education.start_time.to_i, -education.end_time.to_i, education.school]}).each do |education| 
         .row.top-buffer.bottom-padding
           .col-xs-3.col-md-offset-1
-            %img.education-img.horizontal-center{:src => education.photo.to_s, :alt => education.school, :title => education.school}
+            .education-img-container{:title => education.school}
+              = scaled_center_img_tag education.photo.to_s
           .col-md-7.col-xs-9
             %p.section-subtitle= education.school
             .row.gray
@@ -167,7 +168,8 @@
       - (@person.jobs.sort_by {|job| [-job.start_time.to_i, -job.end_time.to_i, job.company]}).each do |job|
         .row.top-buffer.bottom-padding
           .col-xs-3.col-md-offset-1
-            %img.job-img.horizontal-center{:src => job.photo.to_s, :alt => job.company, :title => job.company}
+            .job-img-container{:title => job.company}
+              = scaled_center_img_tag job.photo.to_s
           .col-md-7.col-xs-9
             %p.section-subtitle= job.company
             %p.job-title= job.title

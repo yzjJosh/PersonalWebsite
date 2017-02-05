@@ -54,4 +54,9 @@ module AboutHelper
     def common_description_tag(description)
         "<p class='common-description'>#{description}</p>"
     end
+
+    # An image that is centered and scaled to fit its container while preserving its ratio.
+    def scaled_center_img_tag(img_url)
+        "<div class='img' style='background: url(#{img_url}); background-size: contain; background-repeat: no-repeat; background-position: center;'></div>".html_safe
+    end
 end

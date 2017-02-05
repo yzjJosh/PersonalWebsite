@@ -109,9 +109,9 @@ $img-dim: 200px;
     font-size: 12px;
 }
 
-.education-img {
-    max-width: $img-dim;
-    max-height: $img-dim;
+.education-img-container {
+    width: $img-dim;
+    height: $img-dim;
 }
 
 .education-time {
@@ -219,9 +219,9 @@ $img-dim: 200px;
     padding-left: 10px;
 }
 
-.job-img {
-    max-width: $img-dim;
-    max-height: $img-dim;
+.job-img-container {
+    width: $img-dim;
+    height: $img-dim;
 }
 
 .job-title {

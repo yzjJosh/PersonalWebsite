@@ -106,11 +106,12 @@
         - else
           .col-md-10.col-md-offset-2
             %h1.section-title Where do I learn?
-      - (@person.educations.sort_by {|education| [- education.start_time.to_i, -education.end_time.to_i, education.school]}).each do |education| 
+      - (@person.educations.sort_by {|education| [- education.start_time.to_i, education.end_time ? 1: 0, -education.end_time.to_i, education.school]}).each do |education| 
         .row.top-buffer.bottom-padding
           .col-xs-3.col-md-offset-1
-            .education-img-container{:title => education.school}
-              = scaled_center_img_tag education.photo.to_s
+            - if !education.photo.blank?
+              .education-img-container{:title => education.school}
+                = scaled_center_img_tag education.photo.to_s
           .col-md-7.col-xs-9
             %p.section-subtitle= education.school
             .row.gray
@@ -152,7 +153,7 @@
                     %ul.list-unstyled{:hidden => true, :id => "education_project-content-#{education.id}"}
                       %li
                         %small.link.hide-link{:id=> "education_project-hide-#{education.id}"} Click to hide projects
-                      - (education.projects.sort_by {|project| [-project.start_time.to_i, -project.end_time.to_i, project.name]}).each do |project|
+                      - (education.projects.sort_by {|project| [-project.start_time.to_i, project.end_time ? 1: 0, -project.end_time.to_i, project.name]}).each do |project|
                         %li.project-item.border-link{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Project Detail', 'data-content' => project_detail_tag(project)}
                           %span= project.name 
   -if @person.jobs.length > 0
@@ -165,11 +166,12 @@
         - else
           .col-md-10.col-md-offset-2
             %h1.section-title Where do I work?
-      - (@person.jobs.sort_by {|job| [-job.start_time.to_i, -job.end_time.to_i, job.company]}).each do |job|
+      - (@person.jobs.sort_by {|job| [-job.start_time.to_i, job.end_time ? 1: 0, -job.end_time.to_i, job.company]}).each do |job|
         .row.top-buffer.bottom-padding
           .col-xs-3.col-md-offset-1
-            .job-img-container{:title => job.company}
-              = scaled_center_img_tag job.photo.to_s
+            - if !job.photo.blank?
+              .job-img-container{:title => job.company}
+                = scaled_center_img_tag job.photo.to_s
           .col-md-7.col-xs-9
             %p.section-subtitle= job.company
             %p.job-title= job.title
@@ -195,7 +197,7 @@
                 %p.link.hide-link{:id => "job_project-hide-#{job.id}"} Click to hide projects
                 %p.job-project-section-title= "Projects at #{job.company}"
                 .row.job-project-section
-                  - (job.projects.sort_by {|project| [-project.start_time.to_i, -project.end_time.to_i, project.name]}).each do |project|
+                  - (job.projects.sort_by {|project| [-project.start_time.to_i, project.end_time ? 1: 0, -project.end_time.to_i, project.name]}).each do |project|
                     .col-md-6
                       .project-item.border-link{'aria-hidden' => true, 'data-toggle' => 'popover', 'data-placement' => 'top', :title => 'Project Detail', 'data-content' => project_detail_tag(project)}
                         %span= project.name

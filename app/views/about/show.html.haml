@@ -11,7 +11,7 @@
       - @slides.length.times do |i|
         .item{:class => ('active' if i==0)}
           - if !@slides[i].background.blank?
-            = scaled_center_img_tag @slides[i].background.to_s
+            %img{:src => @slides[i].background.to_s }
           .container
             .carousel-caption
               %h1= @slides[i].title

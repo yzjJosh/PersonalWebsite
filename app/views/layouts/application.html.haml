@@ -29,7 +29,7 @@
             %li
               %a{:href => '/about'} About Me
             %li
-              %a{:href => '#'} Contact
+              %a{:href => @person ? "mailto:#{@person.email}": '#'} Contact
     %div 
       = yield
 

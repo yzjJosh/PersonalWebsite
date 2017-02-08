@@ -9,19 +9,19 @@
       %ul.list-inline
         -if !@person.linkedin_url.blank?
           %li
-            %a{:href => @person.linkedin_url}
+            %a{:href => @person.linkedin_url, :target => '_blank'}
               %img.icon{:src => image_path('linkedin_icon.png'), :title => "Linkedin profile", :alt => "linkedin"}
         -if !@person.github_url.blank?
           %li
-            %a{:href => @person.github_url}
+            %a{:href => @person.github_url, :target => '_blank'}
               %img.icon{:src => image_path('github_icon.png'), :title => "Github profile", :alt => "github"}
         -if !@person.facebook_url.blank?
           %li
-            %a{:href => @person.facebook_url}
+            %a{:href => @person.facebook_url, :target => '_blank'}
               %img.icon{:src => image_path('facebook_icon.png'), :title => "Facebook profile", :alt => "facebook"}
         -if !@person.google_plus_url.blank?
           %li
-            %a{:href => @person.google_plus_url}
+            %a{:href => @person.google_plus_url, :target => '_blank'}
               %img.icon{:src => image_path('google_plus_icon.png'), :title => "Google+ profile", :alt => "Google+"}
         -if !@person.wechat_qrcode.blank?
           %li

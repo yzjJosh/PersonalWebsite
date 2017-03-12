@@ -25,6 +25,6 @@ production:
   encoding: utf8
   database: personal_website
   pool: 5
-  username: ENV["RAILS_MYSQL_USERNAME"]
-  password: ENV["RAILS_MYSQL_PASSWORD"]
-  socket: ENV["RAILS_MYSQL_SOCKET"]
+  username: <%= ENV["RAILS_MYSQL_USERNAME"] %>
+  password: <%= ENV["RAILS_MYSQL_PASSWORD"] %>
+  socket: <%= ENV["RAILS_MYSQL_SOCKET"] %>

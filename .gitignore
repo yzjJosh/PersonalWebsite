@@ -26,9 +26,6 @@
 # Ignore vim swap files
 *.swp
 
-# Ignore Passengerfile.json
-Passengerfile.json
-
 # Ignore vendor folder
 /vendor
 

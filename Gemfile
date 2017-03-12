@@ -45,7 +45,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-groud :production do
+group :production do
   # Use MySQL as production database
   gem 'mysql2'
 end

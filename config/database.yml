@@ -27,4 +27,4 @@ production:
   pool: 5
   username: ENV["RAILS_MYSQL_USERNAME"]
   password: ENV["RAILS_MYSQL_PASSWORD"]
-  socket: /tmp/mysql.sock
+  socket: ENV["RAILS_MYSQL_SOCKET"]

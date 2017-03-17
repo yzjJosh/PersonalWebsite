@@ -156,7 +156,7 @@ Slide {
   export RAILS_MYSQL_PASSWORD=mysql password
   export RAILS_MYSQL_SOCKET=mysql socket
   ```
-  Note that the "SECRET_KEY_BASE" should be a random long string. It is recommended to run "rails secret" to generate one.
+  Note that the "SECRET_KEY_BASE" should be a random long string. It is recommended to run "bundle exec rake secret" to generate one.
 
 ### 3. Prepare for the deployment
   * Install required gems by running

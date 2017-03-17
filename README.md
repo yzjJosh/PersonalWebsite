@@ -4,7 +4,7 @@ This project is Zijiang Yang's personal website www.zijiangyang.com
 
 The website uses ruby on rails framework, runs under ruby 2.3.1.
 
-It runs on a single server, using sqlite3 as database software. All data are stored in the server's hard disk.
+It runs on a single server, using mysql as database software. 
 
 It contains a simple welcome page and a personal resume. The resume data is organized and stored in database.
 
@@ -142,55 +142,31 @@ Slide {
 
 ###1. Make sure you have already installed required softwares
   * Ruby
-  * Rails
+  * Bundler
   * Passenger
   * GraphicsMagick
+  * MySQL
 
 ###2. Set up environment variables
   ```
   export RAILS_ENV=production
   export RAILS_SERVE_STATIC_FILES=true
   export SECRET_KEY_BASE=some random string
+  export RAILS_MYSQL_USERNAME=mysql user name
+  export RAILS_MYSQL_PASSWORD=mysql password
+  export RAILS_MYSQL_SOCKET=mysql socket
   ```
   Note that the "SECRET_KEY_BASE" should be a random long string. It is recommended to run "rails secret" to generate one.
 
 ###3. Prepare for the deployment
   * Install required gems by running
     ```
-    bundle install
+    bundle install --deployment --without development test
     ```
-  * If you do not have a database, generate one by running
+  * Compile assets and migrate database by running
     ```
-    rails db:schema:load
+    bundle exec rake assets:precompile db:migrate RAILS_ENV=production
     ```
-    If you already have a databse, update it by running
-    ```
-    rails db:migrate
-    ```
-  * Precompile assets by running
-    ```
-    rails assets:precompile
-    ```
+  * Create a database named "personal_website" in your mysql database. See mysql documentations for details.
 
-  * Config the server. You should create a file "Passengerfile.json" in this app's folder:
-    ```
-    {
-        // Run the app in a production environment. The default value is "development".
-        "environment": "production",
-        // Run Passenger on port 80, the standard HTTP port.
-        "port": 80,
-        // Tell Passenger to daemonize into the background.
-        "daemonize": true,
-        // Tell Passenger to run the app as the given user. Only has effect
-        // if Passenger was started with root privileges.
-        "user": "YOUR USER NAME"
-    }
-    ```
-
-###4. Start the server
-  You can start server by running
-  ```
-  rvmsudo -E bundle exec passenger start
-  ```
-  
-  Note that you need to input data into database for this app to work correctly.
+###4. Follow instructions in https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ to deploy the passenger server.

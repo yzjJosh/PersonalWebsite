@@ -169,4 +169,5 @@ Slide {
     ```
   * Create a database named "personal_website" in your mysql database. See mysql documentations for details.
 
-### 4. Follow instructions in https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ to deploy the passenger server.
+### 4. Deploy
+  Follow instructions in https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ to deploy the passenger server.

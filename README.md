@@ -138,16 +138,16 @@ Slide {
 }
 ```
 
-##Deployment:
+## Deployment:
 
-###1. Make sure you have already installed required softwares
+### 1. Make sure you have already installed required softwares
   * Ruby
   * Bundler
   * Passenger
   * GraphicsMagick
   * MySQL
 
-###2. Set up environment variables
+### 2. Set up environment variables
   ```
   export RAILS_ENV=production
   export RAILS_SERVE_STATIC_FILES=true
@@ -158,7 +158,7 @@ Slide {
   ```
   Note that the "SECRET_KEY_BASE" should be a random long string. It is recommended to run "rails secret" to generate one.
 
-###3. Prepare for the deployment
+### 3. Prepare for the deployment
   * Install required gems by running
     ```
     bundle install --deployment --without development test
@@ -169,4 +169,4 @@ Slide {
     ```
   * Create a database named "personal_website" in your mysql database. See mysql documentations for details.
 
-###4. Follow instructions in https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ to deploy the passenger server.
+### 4. Follow instructions in https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ to deploy the passenger server.

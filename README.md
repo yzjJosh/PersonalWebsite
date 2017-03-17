@@ -163,11 +163,11 @@ Slide {
     ```
     bundle install --deployment --without development test
     ```
+  * Create a database named "personal_website" in your mysql database. See mysql documentations for details.
   * Compile assets and migrate database by running
     ```
     bundle exec rake assets:precompile db:migrate RAILS_ENV=production
     ```
-  * Create a database named "personal_website" in your mysql database. See mysql documentations for details.
 
 ### 4. Deploy
   Follow instructions in https://www.phusionpassenger.com/library/walkthroughs/deploy/ruby/ to deploy the passenger server.

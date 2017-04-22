@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170201030218) do
+ActiveRecord::Schema.define(version: 20170422031029) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -27,13 +27,13 @@ ActiveRecord::Schema.define(version: 20170201030218) do
     t.string   "location"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.decimal  "GPA"
-    t.decimal  "GPA_scale"
+    t.decimal  "GPA",         precision: 10, scale: 2
+    t.decimal  "GPA_scale",   precision: 10, scale: 2
     t.string   "photo"
     t.text     "description"
     t.integer  "person_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.string   "major"
     t.index ["person_id"], name: "index_educations_on_person_id"
   end

@@ -1,6 +1,8 @@
 = content_for :head do
   = stylesheet_link_tag 'about', media: 'all'
   = javascript_include_tag 'about', 'data-turbolinks-track': 'reload'
+  -if Rails.env.production?
+    = google_analytics
 
 - if @slides.length > 0
   .carousel.slide#head-slides{'data-ride' => 'carousel'}

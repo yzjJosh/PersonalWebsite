@@ -1,5 +1,7 @@
 class InterestsController < ApplicationController
   before_action :set_interest, only: [:show, :edit, :update, :destroy]
+  before_action :store_return_to
+  before_action :require_login
 
   # GET /interests
   # GET /interests.json

@@ -1,5 +1,7 @@
 class SkillsController < ApplicationController
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
+  before_action :store_return_to
+  before_action :require_login
 
   # GET /skills
   # GET /skills.json

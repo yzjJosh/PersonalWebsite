@@ -1,5 +1,7 @@
 class HonorsController < ApplicationController
   before_action :set_honor, only: [:show, :edit, :update, :destroy]
+  before_action :store_return_to
+  before_action :require_login
 
   # GET /honors
   # GET /honors.json

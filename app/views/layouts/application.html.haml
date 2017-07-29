@@ -30,6 +30,9 @@
               %a{:href => '/about'} About Me
             %li
               %a{:href => @person ? "mailto:#{@person.email}": '#'} Contact
+          -if user
+            =form_tag "/logout", :method => "post", :class => "navbar-form navbar-right" do
+              %button.btn.btn-primary{:type => "submit"}= "Sign out from #{user.name}"
     %div 
       = yield
 

@@ -1,5 +1,7 @@
 class LanguagesController < ApplicationController
   before_action :set_language, only: [:show, :edit, :update, :destroy]
+  before_action :store_return_to
+  before_action :require_login
 
   # GET /languages
   # GET /languages.json

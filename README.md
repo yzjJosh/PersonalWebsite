@@ -155,6 +155,11 @@ Slide {
   export RAILS_MYSQL_USERNAME=mysql user name
   export RAILS_MYSQL_PASSWORD=mysql password
   export RAILS_MYSQL_SOCKET=mysql socket
+  export RAILS_SMTP_ADDRESS=smtp server address
+  export RAILS_SMTP_PORT=smtp server port number
+  export RAILS_SMTP_DOMAIN=smtp server HELO domain
+  export RAILS_SMTP_USER_NAME=smtp user name
+  export RAILS_SMTP_PASSWORD=smtp password
   ```
   Note that the "SECRET_KEY_BASE" should be a random long string. It is recommended to run "bundle exec rake secret" to generate one.
 

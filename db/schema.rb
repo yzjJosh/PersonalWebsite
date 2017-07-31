@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170719051147) do
+ActiveRecord::Schema.define(version: 20170731075040) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "name",         limit: 255
@@ -80,6 +80,15 @@ ActiveRecord::Schema.define(version: 20170719051147) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.index ["person_id"], name: "idx_languages_index_languages_on_person_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "sender"
+    t.string   "email"
+    t.text     "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "ip"
   end
 
   create_table "people", force: :cascade do |t|

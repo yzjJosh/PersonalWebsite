@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Sender:
+  = @message.sender
+%p
+  %b Email:
+  = @message.email
+%p
+  %b IP:
+  = @message.ip
+%p
+  %b Time:
+  = @message.created_at
+%p
+  %b Message:
+  = @message.message
+
+= link_to 'Edit', edit_message_path(@message)
+\|
+= link_to 'Back', messages_path
+= stylesheet_link_tag 'messages', media: 'all'
+= stylesheet_link_tag 'scaffolds', media: 'all'
+= javascript_include_tag 'messages', 'data-turbolinks-track': 'reload'

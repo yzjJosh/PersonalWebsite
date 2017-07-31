@@ -1,0 +1,25 @@
+#outter-container {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    height: 400px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#inner-container {
+    text-align: center
+}
+
+#success-message {
+    font-size: 50px;
+    color: green;
+}
+
+#button {
+    margin-top: 30px;
+    width: 100px;
+}
+

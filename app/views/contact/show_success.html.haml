@@ -1,0 +1,11 @@
+= content_for :head do
+  = stylesheet_link_tag 'contact-success', media: 'all'
+  = javascript_include_tag 'contact-success', 'data-turbolinks-track': 'reloadi'
+  -if Rails.env.production?
+    = google_analytics
+
+.container-fluid
+  .jumbotron#outter-container
+    #inner-container
+      %p#success-message= "Your message has been sent to #{@person.name}!"
+      %a#button.btn.btn-primary{:href => "/"} Back

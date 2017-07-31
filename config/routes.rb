@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :messages
   resources :slides
   resources :people
   resources :languages
@@ -20,7 +21,13 @@ Rails.application.routes.draw do
 
     get 'login', to: 'login#show'
 
+    get 'contact', to: 'contact#show'
+   
+    get 'contact/success', to: 'contact#show_success'
+
     post 'login', to: 'login#login'
 
     post 'logout', to: 'login#logout'
+
+    post 'contact', to: 'contact#send_email'
 end

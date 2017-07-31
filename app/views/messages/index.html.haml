@@ -1,0 +1,32 @@
+%h1 Listing messages
+
+%table
+  %thead
+    %tr
+      %th Sender
+      %th Email
+      %th IP
+      %th Time
+      %th Message
+      %th
+      %th
+      %th
+
+  %tbody
+    - @messages.each do |message|
+      %tr
+        %td= message.sender
+        %td= message.email
+        %td= message.ip
+        %td= message.created_at
+        %td= message.message
+        %td= link_to 'Show', message
+        %td= link_to 'Edit', edit_message_path(message)
+        %td= link_to 'Destroy', message, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Message', new_message_path
+= stylesheet_link_tag 'messages', media: 'all'
+= stylesheet_link_tag 'scaffolds', media: 'all'
+= javascript_include_tag 'messages', 'data-turbolinks-track': 'reload'

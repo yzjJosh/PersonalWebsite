@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+%html
+  %head
+    %style= "td { vertical-align: top; }\n.content { padding-left: 15px;}"
+  %body
+    %p= "Hi #{@person.name},"
+    %p You have a new message from www.zijiangyang.com.
+    %table
+      %tr
+        %td.header
+          %b Sender:
+        %td.content= @message.sender
+      %tr
+        %td.header
+          %b Email:
+        %td.content= @message.email
+      %tr
+        %td.header
+          %b IP:
+        %td.content= @message.ip
+      %tr
+        %td.header
+          %b Message:
+        %td.content= @message.message
+    %p Thank you very much!
+    %p 
+      Best,
+      %br
+      PersonalWebsite

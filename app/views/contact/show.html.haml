@@ -5,10 +5,10 @@
     = google_analytics
 
 .container-fluid
+  .row.top-buffer
+    .col-sm-offset-3.col-lg-offset-4.col-sm-9.col-lg-8
+      %p.title= "Get in touch with #{@person.name}"
   = form_tag "/contact", :method => "post", :class => "form-horizontal" do
-    .row.top-buffer
-      .col-sm-offset-3.col-lg-offset-4.col-sm-9.col-lg-8
-        %p.title= "Get in touch with #{@person.name}"
     .form-group.row.top-buffer
       %label.col-sm-3.col-lg-4.control-label{:for => "inputName"} 
         Your Name

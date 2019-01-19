@@ -1,0 +1,36 @@
+%h1 Listing message_blockers
+
+%table
+  %thead
+    %tr
+      %th Rule name
+      %th Description
+      %th Name matcher
+      %th Email matcher
+      %th Ip matcher
+      %th Message matcher
+      %th Triggered times
+      %th
+      %th
+      %th
+
+  %tbody
+    - @message_blockers.each do |message_blocker|
+      %tr
+        %td= message_blocker.rule_name
+        %td= message_blocker.description
+        %td= message_blocker.name_matcher
+        %td= message_blocker.email_matcher
+        %td= message_blocker.ip_matcher
+        %td= message_blocker.message_matcher
+        %td= message_blocker.triggered_times
+        %td= link_to 'Show', message_blocker
+        %td= link_to 'Edit', edit_message_blocker_path(message_blocker)
+        %td= link_to 'Destroy', message_blocker, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Message blocker', new_message_blocker_path
+= stylesheet_link_tag 'message_blockers', media: 'all'
+= stylesheet_link_tag 'scaffolds', media: 'all'
+= javascript_include_tag 'message_blockers', 'data-turbolinks-track': 'reload'

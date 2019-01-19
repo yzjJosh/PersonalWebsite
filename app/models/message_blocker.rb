@@ -1,0 +1,2 @@
+class MessageBlocker < ApplicationRecord
+end

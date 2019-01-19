@@ -1,0 +1,10 @@
+%h1 Editing message_blocker
+
+= render 'form'
+
+= link_to 'Show', @message_blocker
+\|
+= link_to 'Back', message_blockers_path
+= stylesheet_link_tag 'message_blockers', media: 'all'
+= stylesheet_link_tag 'scaffolds', media: 'all'
+= javascript_include_tag 'message_blockers', 'data-turbolinks-track': 'reload'

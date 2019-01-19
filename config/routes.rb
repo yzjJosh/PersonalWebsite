@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :message_blockers
   resources :messages
   resources :slides
   resources :people
@@ -24,6 +25,8 @@ Rails.application.routes.draw do
     get 'contact', to: 'contact#show'
    
     get 'contact/success', to: 'contact#show_success'
+
+    get 'contact/failure', to: 'contact#show_failure'
 
     post 'login', to: 'login#login'
 

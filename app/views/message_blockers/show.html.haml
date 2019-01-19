@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Rule name:
+  = @message_blocker.rule_name
+%p
+  %b Description:
+  = @message_blocker.description
+%p
+  %b Name matcher:
+  = @message_blocker.name_matcher
+%p
+  %b Email matcher:
+  = @message_blocker.email_matcher
+%p
+  %b Ip matcher:
+  = @message_blocker.ip_matcher
+%p
+  %b Message matcher:
+  = @message_blocker.message_matcher
+%p
+  %b Triggered times:
+  = @message_blocker.triggered_times
+
+= link_to 'Edit', edit_message_blocker_path(@message_blocker)
+\|
+= link_to 'Back', message_blockers_path
+= stylesheet_link_tag 'message_blockers', media: 'all'
+= stylesheet_link_tag 'scaffolds', media: 'all'
+= javascript_include_tag 'message_blockers', 'data-turbolinks-track': 'reload'

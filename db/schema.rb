@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170731075040) do
+ActiveRecord::Schema.define(version: 20190119215002) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -80,6 +80,19 @@ ActiveRecord::Schema.define(version: 20170731075040) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["person_id"], name: "index_languages_on_person_id"
+  end
+
+  create_table "message_blockers", force: :cascade do |t|
+    t.string   "rule_name"
+    t.string   "description"
+    t.string   "name_matcher"
+    t.string   "email_matcher"
+    t.string   "ip_matcher"
+    t.string   "message_matcher"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "triggered_times", default: 0, null: false
+    t.index ["rule_name"], name: "index_message_blockers_on_rule_name", unique: true
   end
 
   create_table "messages", force: :cascade do |t|

@@ -1,0 +1,11 @@
+= content_for :head do
+  = stylesheet_link_tag 'contact-failure', media: 'all'
+  = javascript_include_tag 'contact-failure', 'data-turbolinks-track': 'reload'
+  -if Rails.env.production?
+    = google_analytics
+
+.container-fluid
+  .jumbotron#outter-container
+    #inner-container
+      %p#failed-message= "You are not allowed to send message to #{@person.name}!"
+      %a#button.btn.btn-primary{:href => "/"} Back

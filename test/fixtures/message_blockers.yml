@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rule_name: MyString
+  description: MyString
+  name_matcher: MyString
+  email_matcher: MyString
+  ip_matcher: MyString
+  message_matcher: MyString
+
+two:
+  rule_name: MyString
+  description: MyString
+  name_matcher: MyString
+  email_matcher: MyString
+  ip_matcher: MyString
+  message_matcher: MyString

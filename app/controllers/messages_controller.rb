@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.all
+    @messages = Message.all.sort_by {|message| [-message.created_at.to_i]}
   end
 
   # GET /messages/1

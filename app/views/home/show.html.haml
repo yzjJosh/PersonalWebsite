@@ -8,7 +8,7 @@
 
 .container-fluid.background-img
   .background-inner
-    %p.title.white "Welcome to #{@person.name}'s home page!"
+    %p.title.white = "Welcome to #{@person.name}'s home page!"
     .operations
       %ul.list-inline
         -if !@person.linkedin_url.blank?

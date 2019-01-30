@@ -44,11 +44,11 @@ module AboutHelper
                 description_tag = "<p class='project-description'>#{lines[0]}</p>"
             end
         end
-        ("<div class='project-area'>\n" +
-         "  <p class='project-name'>#{project.name}</p>\n" +
-         "  <p class='gray project-time'>#{time_range project.start_time, project.end_time}</p>\n" +
-         "  #{description_tag}\n" +
-         "</div>").html_safe
+        "<div class='project-area'>\n" +
+        "  <p class='project-name'>#{project.name}</p>\n" +
+        "  <p class='gray project-time'>#{time_range project.start_time, project.end_time}</p>\n" +
+        "  #{description_tag}\n" +
+        "</div>"
     end
 
     def common_description_tag(description)

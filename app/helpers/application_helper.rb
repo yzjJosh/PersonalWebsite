@@ -15,6 +15,6 @@ module ApplicationHelper
     end
 
     def recaptcha_script
-        "<script src='https://www.google.com/recaptcha/api.js' async defer/>".html_safe
+        "<script src='https://www.google.com/recaptcha/api.js' async defer></script>".html_safe
     end
 end

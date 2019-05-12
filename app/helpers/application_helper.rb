@@ -13,4 +13,8 @@ module ApplicationHelper
         "  ga('send', 'pageview');"\
         "</script>".html_safe
     end
+
+    def recaptcha_script
+        "<script src='https://www.google.com/recaptcha/api.js' async defer/>".html_safe
+    end
 end

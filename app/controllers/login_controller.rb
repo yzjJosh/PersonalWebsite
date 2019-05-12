@@ -10,6 +10,7 @@ class LoginController < ApplicationController
     if user
       # If already logged in, ignore this request
       redirect_back_or_default
+      return
     end
     user = User.find_by(name: params[:name])
     if user.password == params[:password]

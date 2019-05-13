@@ -7,5 +7,5 @@
 .container-fluid
   .jumbotron#outter-container
     #inner-container
-      %p#failed-message= "You are not allowed to send message to #{@person.name}!"
-      %a#button.btn.btn-primary{:href => "/"} Back
+      %p#failed-message= "Unable to send message to #{@person.name}! Please try again!"
+      %a#button.btn.btn-primary{:href => "/contact"} Retry

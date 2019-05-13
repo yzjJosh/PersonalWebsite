@@ -14,6 +14,17 @@ class ContactController < ApplicationController
   end
 
   def send_email
+    begin
+      params.require [:name, :email, :message, 'g-recaptcha-response']
+    rescue ActionController::ParameterMissing => e
+      logger.error e
+      redirect_to :action => :show_failure
+      return
+    end
+    if not verify_recaptcha_response params['g-recaptcha-response'], request.remote_ip
+      redirect_to :action => :show_failure
+      return
+    end
     MessageBlocker.all.each do |blocker|
       if Regexp.new(blocker.name_matcher).match(params[:name]) != nil and Regexp.new(blocker.email_matcher).match(params[:email]) != nil and Regexp.new(blocker.ip_matcher).match(request.remote_ip) != nil and Regexp.new(blocker.message_matcher).match(params[:message]) != nil
         blocker.triggered_times = blocker.triggered_times + 1 

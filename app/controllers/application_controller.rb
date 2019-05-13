@@ -25,4 +25,15 @@ class ApplicationController < ActionController::Base
   def redirect_back_or_default
     redirect_to (session[:return_to] || "/")
   end
+
+  def verify_recaptcha_response(token, remoteip)
+    response = RestClient.post 'https://www.google.com/recaptcha/api/siteverify', { :secret => ENV['RECAPTCHA_SECRET_KEY'], :response => token, :remoteip => remoteip}      
+    logger.info "Response for recaptcha verification:"
+    logger.info response
+    if response.code != 200
+      return false
+    end
+    body = JSON.parse response.body
+    return body['success']
+  end
 end

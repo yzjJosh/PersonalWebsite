@@ -1,6 +1,10 @@
 module ApplicationHelper
     def allow_line_break(text)
-        text.gsub(/\n/, '<br/>').html_safe
+        if text
+            text.gsub(/\n/, '<br/>').html_safe
+        else
+            text
+        end
     end
 
     def google_analytics

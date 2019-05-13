@@ -1,23 +1,22 @@
 = content_for :head do
   = stylesheet_link_tag 'login', media: 'all'
   = javascript_include_tag 'login', 'data-turbolinks-track': 'reload'
-  -if Rails.env.production?
-    = recaptcha_script
+  = recaptcha_script
+  %script function onRecaptchaSolved(token) {$("#submit").removeClass("disabled").removeAttr("disabled")}
 .container-fluid
-  = form_tag "/login", :method => "post", :class => "form-horizontal" do
+  = form_tag '/login', :method => 'post', :class => 'form-horizontal' do
     .form-group.row.top-buffer
-      %label.col-sm-4.control-label{:for => "inputUserName"} User Name
+      %label.col-sm-4.control-label{:for => 'inputUserName'} User Name
       .col-sm-4
-        %input.form-control#inputUserName{:type => "text", :placeholder => "User Name", :name => "name"}
+        %input.form-control#inputUserName{:type => 'text', :placeholder => 'User Name', :name => 'name', :required => true}
     .form-group.row.top-buffer
-      %label.col-sm-4.control-label{:for => "inputPassword"} Password
+      %label.col-sm-4.control-label{:for => 'inputPassword'} Password
       .col-sm-4
-        %input.form-control#inputPassword{:type => "password", :placeholder => "Password", :name => "password"}
-    -if Rails.env.production?
-      .form-group.row.top-buffer
-        .col-sm-offset-4.col-sm-4
-          .g-recaptcha{'data-sitekey' => '6LfbHqMUAAAAAGyGl9PISqhaA-i92fSBKZb7pIHd'}
+        %input.form-control#inputPassword{:type => 'password', :placeholder => 'Password', :name => 'password', :required => true}
     .form-group.row.top-buffer
       .col-sm-offset-4.col-sm-4
-        %button.btn.btn-default{:type => "submit"} Sign in
+        .g-recaptcha{'data-sitekey' => '6LfbHqMUAAAAAGyGl9PISqhaA-i92fSBKZb7pIHd', 'data-callback' => 'onRecaptchaSolved'}
+    .form-group.row.top-buffer
+      .col-sm-offset-4.col-sm-4
+        %button.btn.btn-default.disabled#submit{:type => 'submit', :disabled => true, 'data-callback' => 'onRecaptchaSolved'} Sign in
 

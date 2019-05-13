@@ -34,7 +34,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   # Use sqlite3 as the test database for Active Record
-  gem 'sqlite3'
+  gem 'sqlite3', '1.3.13'
 end
 
 group :development do
@@ -67,3 +67,6 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
 
 # Use listen
 gem 'listen', '~> 3.0.5'
+
+# Use rest-client
+gem 'rest-client'

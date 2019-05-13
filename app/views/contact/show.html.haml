@@ -1,9 +1,10 @@
 = content_for :head do
   = stylesheet_link_tag 'contact', media: 'all'
   = javascript_include_tag 'contact', 'data-turbolinks-track': 'reload'
+  = recaptcha_script
   -if Rails.env.production?
     = google_analytics
-    = recaptcha_script
+  %script function onRecaptchaSolved(token) {$("#submit").removeClass("disabled").removeAttr("disabled")}
 .container-fluid
   .row.top-buffer
     .col-sm-offset-3.col-lg-offset-4.col-sm-9.col-lg-8
@@ -27,10 +28,9 @@
         %i.fa.fa-asterisk{'aria-hidden' => true}
       .col-xs-12.col-sm-6.col-lg-4
         %textarea.form-control#inputMessage{:placeholder => 'Type your message here', :name => 'message', :required => true}
-    -if Rails.env.production?
-      .form-group.row.top-buffer
-        .col-sm-offset-3.col-lg-offset-4.col-sm-4.col-xs-12
-          .g-recaptcha{'data-sitekey' => '6LfbHqMUAAAAAGyGl9PISqhaA-i92fSBKZb7pIHd'}
     .form-group.row.top-buffer
       .col-sm-offset-3.col-lg-offset-4.col-sm-4.col-xs-12
-        %button.btn.btn-primary{:type => 'submit'} Send Message
+        .g-recaptcha{'data-sitekey' => '6LfbHqMUAAAAAGyGl9PISqhaA-i92fSBKZb7pIHd', 'data-callback' => 'onRecaptchaSolved'}
+    .form-group.row.top-buffer
+      .col-sm-offset-3.col-lg-offset-4.col-sm-4.col-xs-12
+        %button.btn.btn-primary.disabled#submit{:type => 'submit', :disabled => true} Send Message

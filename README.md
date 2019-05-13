@@ -160,6 +160,7 @@ Slide {
   export RAILS_SMTP_DOMAIN=smtp server HELO domain
   export RAILS_SMTP_USER_NAME=smtp user name
   export RAILS_SMTP_PASSWORD=smtp password
+  export RECAPTCHA_SECRET_KEY=your recaptcha secret key
   ```
   Note that the "SECRET_KEY_BASE" should be a random long string. It is recommended to run "bundle exec rake secret" to generate one.
 
